@@ -29,10 +29,10 @@ public class ExpenseAdapter extends ArrayAdapter<Expense> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.adapter_expenses, parent, false);
 
-        TextView tvTitle = (TextView) view.findViewById(R.id.list_layout_textview_title);
-        TextView tvAmount = (TextView) view.findViewById(R.id.list_layout_textview_amount);
-        TextView tvDate = (TextView) view.findViewById(R.id.list_layout_textview_date);
-        ImageView ivIcon = (ImageView) view.findViewById(R.id.list_layout_imageview);
+        TextView tvTitle = (TextView) view.findViewById(R.id.adapter_list_layout_textview_title);
+        TextView tvAmount = (TextView) view.findViewById(R.id.adapter_list_layout_textview_amount);
+        TextView tvDate = (TextView) view.findViewById(R.id.adapter_list_layout_textview_date);
+        ImageView ivIcon = (ImageView) view.findViewById(R.id.adapter_list_layout_imageview);
 
         Expense expense = getItem(position);
 
@@ -46,7 +46,7 @@ public class ExpenseAdapter extends ArrayAdapter<Expense> {
                 ivIcon.setImageResource(R.drawable.food);
                 break;
             case "Other":
-                ivIcon.setImageResource(R.drawable.euro);
+                ivIcon.setImageResource(R.drawable.other);
                 break;
             case "Travel":
                 ivIcon.setImageResource(R.drawable.travel);
