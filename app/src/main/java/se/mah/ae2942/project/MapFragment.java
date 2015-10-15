@@ -7,15 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 /**
  * Google maps fragment, displays all the expenses locations.
  */
 public class MapFragment extends Fragment {
-
-
-    // hejhej
-
 
     private View view;
 
