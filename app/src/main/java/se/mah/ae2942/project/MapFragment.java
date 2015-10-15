@@ -13,6 +13,10 @@ import android.view.ViewGroup;
  */
 public class MapFragment extends Fragment {
 
+
+    // hejhej
+
+
     private View view;
 
     public MapFragment() {
