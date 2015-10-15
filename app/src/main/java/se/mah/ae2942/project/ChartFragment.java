@@ -15,6 +15,7 @@ public class ChartFragment extends Fragment {
 
     private View view;
     private View view1;
+    private View view2;
 
     public ChartFragment() {
 
