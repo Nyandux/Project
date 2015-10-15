@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 public class ChartFragment extends Fragment {
 
     private View view;
+    private View view1;
 
     public ChartFragment() {
 
