@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 /**
  * User fragment, for creating a new user or log in to a existing one.
- * 
  */
 public class UserFragment extends Fragment {
 
