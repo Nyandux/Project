@@ -32,10 +32,12 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_list, container, false);
         initiate();
+
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         AddFragment addFragment = new AddFragment();
         ft.replace(R.id.activity_main_layout, addFragment).commit();
+
         return view;
     }
 
@@ -72,10 +74,7 @@ public class ListFragment extends Fragment {
     private class ButtonListener implements View.OnClickListener{
 
         public void onClick(View v) {
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            AddFragment addFragment = new AddFragment();
-            ft.replace(R.id.activity_main_layout, addFragment).commit();
+
         }
     }
 }
