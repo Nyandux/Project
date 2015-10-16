@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment}
  */
-public class userFragment extends Fragment {
+public class UserFragment extends Fragment {
 
 
     public userFragment() {
