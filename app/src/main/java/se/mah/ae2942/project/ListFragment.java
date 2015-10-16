@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,7 +30,8 @@ public class ListFragment extends Fragment {
     /**
      * Constructor
      */
-    public ListFragment() {}
+    public ListFragment() {
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,40 +44,53 @@ public class ListFragment extends Fragment {
     /**
      * Initiates variables.
      */
-    public void initiate(){
-        listView = (ListView)view.findViewById(R.id.fragment_list_listview);
-        btnChart = (Button)view.findViewById(R.id.fragment_list_button_chart);
-        btnMap = (Button)view.findViewById(R.id.fragment_list_button_map);
+    public void initiate() {
+        listView = (ListView) view.findViewById(R.id.fragment_list_listview);
+        btnChart = (Button) view.findViewById(R.id.fragment_list_button_chart);
+        btnMap = (Button) view.findViewById(R.id.fragment_list_button_map);
         btnMap.setOnClickListener(new ButtonListener());
         btnChart.setOnClickListener(new ButtonListener());
     }
 
     /**
      * Set Listview Adapter.
+     *
      * @param expenseAdapter input
      */
-    public void setListViewAdapter(ExpenseAdapter expenseAdapter){
+    public void setListViewAdapter(ExpenseAdapter expenseAdapter) {
         listView.setAdapter(expenseAdapter);
     }
 
     /**
      * Sets local Controller.
+     *
      * @param controller input
      */
-    public void setController(Controller controller){
+    public void setController(Controller controller) {
         this.controller = controller;
     }
 
     /**
      * ButtonListener
      */
-    private class ButtonListener implements View.OnClickListener{
+    private class ButtonListener implements View.OnClickListener {
 
         public void onClick(View v) {
 
-            if(btnMap.isPressed()){
-                Intent intent = new Intent(getActivity(), MapsActivity.class);
-                startActivity(intent);
+            if (btnMap.isPressed()) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                MapFragment mapFragment = new MapFragment();
+                ft.addToBackStack(null);
+                ft.replace(R.id.activity_main_layout, mapFragment).commit();
+            }
+
+            if(btnChart.isPressed()){
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ChartFragment chartFragment = new ChartFragment();
+                ft.addToBackStack(null);
+                ft.replace(R.id.activity_main_layout, chartFragment).commit();
             }
 
         }

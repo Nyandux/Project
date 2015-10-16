@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_empty_database) {
-            return true;
+            MapsActivity mapsActivity = new MapsActivity();
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
