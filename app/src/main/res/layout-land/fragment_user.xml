@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="30dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -19,13 +19,14 @@
             android:id="@+id/fragment_user_textview_username"
             android:text="@string/fragment_user_textview_username"
             android:layout_marginRight="5dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginBottom="30dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_user_edittext_username"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="15dp"
             android:inputType="text" />
 
     </LinearLayout>
@@ -40,13 +41,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/fragment_user_textview_password"
             android:text="@string/fragment_user_textview_password"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="7dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_user_edittext_password"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="15dp"
             android:inputType="textPassword" />
 
     </LinearLayout>
@@ -55,15 +57,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_user_button_login"
             android:text="@string/fragment_user_button_login"
-            android:layout_weight="1"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"/>
 
         <Button
             android:layout_width="match_parent"
@@ -71,7 +74,8 @@
             android:id="@+id/fragment_user_button_create_user"
             android:text="@string/fragment_user_button_create_user"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"/>
 
     </LinearLayout>
 
