@@ -9,21 +9,21 @@ import android.view.ViewGroup;
 
 
 /**
- * A simple {@link Fragment}
+ * User fragment, for creating a new user or log in to a existing one.
+ * asdasd
  */
 public class UserFragment extends Fragment {
 
+    private View view;
 
-    public userFragment() {
-        // Required empty public constructor
+    public UserFragment() {
+
     }
 
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        view = inflater.inflate(R.layout.fragment_user, container, false);
+        return view;
     }
 
 
