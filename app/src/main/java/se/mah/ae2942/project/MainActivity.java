@@ -1,5 +1,7 @@
 package se.mah.ae2942.project;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,16 +17,15 @@ import java.util.Map;
  * MainActivity class.
  */
 public class MainActivity extends AppCompatActivity {
-    private Button googleMapButton;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        googleMapButton = (Button)findViewById(R.id.googleBtn);
-        googleMapButton.setOnClickListener(new GoogleMapButtonListner());
+
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ListFragment listFragment = new ListFragment();
+        ft.replace(R.id.activity_main_layout, listFragment).commit();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_log_out) {
-            return true;
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            UserFragment userFragment = new UserFragment();
+            ft.replace(R.id.activity_main_layout, userFragment).commit();
         }
 
         if (id == R.id.action_empty_database) {
@@ -46,11 +50,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class GoogleMapButtonListner implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-            startActivity(intent);
-        }
-    }
 }

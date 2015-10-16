@@ -7,17 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 /**
- * Google chart class, summarizes the expenses in a donut diagram.
+ * Google Chart fragment, summarizes the expenses in a donut diagram.
+ * Worked on: Ragnar Einestam
  */
 public class ChartFragment extends Fragment {
 
     private View view;
+    private Controller controller;
 
-    public ChartFragment() {
-
-    }
+    /**
+     * Constructor
+     */
+    public ChartFragment() {}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,5 +27,11 @@ public class ChartFragment extends Fragment {
         return view;
     }
 
-
+    /**
+     * Sets local controller.
+     * @param controller input
+     */
+    public void setController(Controller controller){
+        this.controller = controller;
+    }
 }

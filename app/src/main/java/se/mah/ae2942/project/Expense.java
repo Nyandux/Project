@@ -2,6 +2,7 @@ package se.mah.ae2942.project;
 
 /**
  * Expense class, contains the different values of a new expense.
+ * Worked on: Ragnar Einestam
  */
 public class Expense {
 

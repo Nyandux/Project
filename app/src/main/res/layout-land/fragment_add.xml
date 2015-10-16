@@ -4,11 +4,8 @@
     android:layout_height="match_parent"
     tools:context="se.mah.ae2942.project.AddFragment"
     android:orientation="vertical"
-    android:id="@+id/fragment_add_layout"
-    android:layout_marginTop="50dp"
-    android:layout_marginLeft="25dp"
-    android:layout_marginRight="25dp"
-    android:layout_marginBottom="25dp">
+    android:layout_margin="25dp"
+    android:id="@+id/fragment_add_layout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,22 +53,22 @@
             android:inputType="number" />
 
     </LinearLayout>
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
-
+        
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="wrap_content" 
             android:layout_weight="1"
             android:text="@string/fragment_add_button_cartegory"
             android:id="@+id/fragment_add_button_category"
             android:layout_margin="5dp"
             android:fontFamily="@string/common_google_play_services_install_button"/>
-
+        
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,18 +77,18 @@
             android:text="@string/fragment_add_button_date"
             android:layout_margin="5dp"
             android:fontFamily="@string/common_google_play_services_install_button"/>
-
+        
     </LinearLayout>
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="bottom">
-
+        android:gravity="center">
+        
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="wrap_content" 
             android:text="@string/fragment_add_button_finish"
             android:id="@+id/fragment_add_button_finish"
             android:layout_margin="5dp"

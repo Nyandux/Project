@@ -10,21 +10,20 @@ import android.widget.TextView;
 
 /**
  * Adapter for the ListView in ListFragment.
+ * Worked on: Ragnar Einestam
  */
 public class ExpenseAdapter extends ArrayAdapter<Expense> {
 
-    private int position;
-    private View convertView;
-    private ViewGroup parent;
-
+    /**
+     * Constructor
+     * @param context view
+     * @param expenses expenses array
+     */
     public ExpenseAdapter(Context context, Expense[] expenses) {
         super(context, R.layout.adapter_expenses, expenses);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        this.position = position;
-        this.convertView = convertView;
-        this.parent = parent;
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.adapter_expenses, parent, false);

@@ -1,26 +1,83 @@
 package se.mah.ae2942.project;
 
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.List;
 
 /**
  * ListView fragment, displays all the expenses.
+ * Worked on: Ragnar Einestam
  */
 public class ListFragment extends Fragment {
 
     private View view;
+    private ListView listView;
+    private Button btnChart, btnMap;
+    private Controller controller;
 
-    public ListFragment() {
-
-    }
+    /**
+     * Constructor
+     */
+    public ListFragment() {}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_list, container, false);
+        initiate();
+
         return view;
+    }
+
+    /**
+     * Initiates variables.
+     */
+    public void initiate(){
+        listView = (ListView)view.findViewById(R.id.fragment_list_listview);
+        btnChart = (Button)view.findViewById(R.id.fragment_list_button_chart);
+        btnMap = (Button)view.findViewById(R.id.fragment_list_button_map);
+        btnMap.setOnClickListener(new ButtonListener());
+        btnChart.setOnClickListener(new ButtonListener());
+    }
+
+    /**
+     * Set Listview Adapter.
+     * @param expenseAdapter input
+     */
+    public void setListViewAdapter(ExpenseAdapter expenseAdapter){
+        listView.setAdapter(expenseAdapter);
+    }
+
+    /**
+     * Sets local Controller.
+     * @param controller input
+     */
+    public void setController(Controller controller){
+        this.controller = controller;
+    }
+
+    /**
+     * ButtonListener
+     */
+    private class ButtonListener implements View.OnClickListener{
+
+        public void onClick(View v) {
+
+            if(btnMap.isPressed()){
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
+            }
+
+        }
     }
 }
