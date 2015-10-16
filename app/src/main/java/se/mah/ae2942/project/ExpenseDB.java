@@ -9,7 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Database for all the expenses.
  */
+/**
 public class ExpenseDB extends SQLiteOpenHelper{
+ */
 /**
     public static final String TABLE_NAME = "Transactions";
     public static final String COLUMN_ID = "id";
@@ -267,4 +269,4 @@ public class ExpenseDB extends SQLiteOpenHelper{
 
         return incomeAmount;
     }
-}
+*/
