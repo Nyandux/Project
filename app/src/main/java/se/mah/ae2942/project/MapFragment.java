@@ -13,9 +13,12 @@ import android.view.ViewGroup;
 public class MapFragment extends Fragment {
 
     private View view;
+    private Controller controller;
 
-    public MapFragment() {
-    }
+    /**
+     * Constructor
+     */
+    public MapFragment() {}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,5 +26,11 @@ public class MapFragment extends Fragment {
         return view;
     }
 
-
+    /**
+     * Sets local Controller.
+     * @param controller input
+     */
+    public void setController(Controller controller){
+        this.controller = controller;
+    }
 }
