@@ -10,8 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Database for all the expenses.
  */
 public class ExpenseDB extends SQLiteOpenHelper{
-
-
+/**
     public static final String TABLE_NAME = "Transactions";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_TITLE = "title";
@@ -34,6 +33,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * Constructor
      * @param context
      */
+/**
     public TransactionDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -53,6 +53,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * Adds a new transaction to the database.
      * @param transaction new transaction
      */
+/**
     public void addTransaction(Transaction transaction) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -67,6 +68,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
     /**
      * Empties the database of all transactions.
      */
+/**
     public void deleteAll() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TransactionDB.TABLE_NAME, null, null);
@@ -76,6 +78,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * Returns all the transactions in databse.
      * @return all transactions[]
      */
+/**
     public Transaction[] getAllTransactions() {
         int titleIndex, amountIndex, dateIndex, categoryIndex;
 
@@ -103,6 +106,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * Returns all the income transactions.
      * @return income transactions[]
      */
+/**
     public Transaction[] getIncomeTransactions() {
         int titleIndex, amountIndex, dateIndex, categoryIndex;
 
@@ -131,6 +135,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * Returns all the expenses transactions.
      * @return expenses transactions[]
      */
+/**
     public Transaction[] getExpensesTransactions() {
         int titleIndex, amountIndex, dateIndex, categoryIndex;
 
@@ -161,6 +166,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * @param date - user input data
      * @return expense transactions[] with date >= to date input
      */
+/**
     public Transaction[] getByDateExpensesTransactions(int date) {
         int titleIndex, amountIndex, dateIndex, categoryIndex;
 
@@ -191,6 +197,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * @param date - user input data
      * @return income transactions[] with date >= to date input
      */
+/**
     public Transaction[] getByDateIncomeTransactions(int date) {
         int titleIndex, amountIndex, dateIndex, categoryIndex;
 
@@ -220,6 +227,7 @@ public class ExpenseDB extends SQLiteOpenHelper{
      * Returns the total amount value of all transactions.
      * @return total amount
      */
+/**
     public int getTransactionTotal() {
         int amountIndex;
         incomeAmount = 0;
@@ -259,5 +267,4 @@ public class ExpenseDB extends SQLiteOpenHelper{
 
         return incomeAmount;
     }
-}
 }
