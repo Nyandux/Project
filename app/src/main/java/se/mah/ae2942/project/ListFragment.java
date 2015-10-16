@@ -4,6 +4,7 @@ package se.mah.ae2942.project;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.List;
 
 /**
  * ListView fragment, displays all the expenses.
@@ -32,11 +35,6 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_list, container, false);
         initiate();
-
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        AddFragment addFragment = new AddFragment();
-        ft.replace(R.id.activity_main_layout, addFragment).commit();
 
         return view;
     }
@@ -74,6 +72,11 @@ public class ListFragment extends Fragment {
     private class ButtonListener implements View.OnClickListener{
 
         public void onClick(View v) {
+
+            if(btnMap.isPressed()){
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
+            }
 
         }
     }

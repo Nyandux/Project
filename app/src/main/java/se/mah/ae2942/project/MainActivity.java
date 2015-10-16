@@ -17,8 +17,6 @@ import java.util.Map;
  * MainActivity class.
  */
 public class MainActivity extends AppCompatActivity {
-    private Button googleMapButton;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        AddFragment lm = new AddFragment();
-        ft.replace(R.id.activity_main_layout, lm).commit();
+        ListFragment listFragment = new ListFragment();
+        ft.replace(R.id.activity_main_layout, listFragment).commit();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_log_out) {
-            return true;
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            UserFragment userFragment = new UserFragment();
+            ft.replace(R.id.activity_main_layout, userFragment).commit();
         }
 
         if (id == R.id.action_empty_database) {
@@ -49,11 +50,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class GoogleMapButtonListner implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-            startActivity(intent);
-        }
-    }
 }
