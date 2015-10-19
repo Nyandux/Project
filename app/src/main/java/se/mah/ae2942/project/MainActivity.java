@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ListFragment listFragment = new ListFragment();
+        ft.addToBackStack(null);
         ft.replace(R.id.activity_main_layout, listFragment).commit();
     }
 
@@ -36,16 +37,24 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        if(id == R.id.action_add_to_list){
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            AddFragment addFragment = new AddFragment();
+            ft.addToBackStack(null);
+            ft.replace(R.id.activity_main_layout, addFragment).commit();
+        }
+
         if (id == R.id.action_log_out) {
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             UserFragment userFragment = new UserFragment();
+            ft.addToBackStack(null);
             ft.replace(R.id.activity_main_layout, userFragment).commit();
         }
 
         if (id == R.id.action_empty_database) {
-            MapsActivity mapsActivity = new MapsActivity();
-            Intent intent = new Intent(this, MapsActivity.class);
+            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
             startActivity(intent);
         }
 

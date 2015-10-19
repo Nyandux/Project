@@ -96,6 +96,7 @@
             android:id="@+id/fragment_add_button_finish"
             android:layout_margin="5dp"
             android:fontFamily="@string/common_google_play_services_install_button"/>
+
     </LinearLayout>
 
 </LinearLayout>
