@@ -77,6 +77,7 @@ public class ListFragment extends Fragment {
 
         public void onClick(View v) {
 
+
             if (btnMap.isPressed()) {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
@@ -89,10 +90,10 @@ public class ListFragment extends Fragment {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ChartFragment chartFragment = new ChartFragment();
+               // AddFragment addFragment = new AddFragment();
                 ft.addToBackStack(null);
                 ft.replace(R.id.activity_main_layout, chartFragment).commit();
             }
-
         }
     }
 }
