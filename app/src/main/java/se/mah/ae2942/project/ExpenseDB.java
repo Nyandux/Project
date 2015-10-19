@@ -1,5 +1,6 @@
 package se.mah.ae2942.project;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -40,8 +41,15 @@ public class ExpenseDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-  //  public boolean insertData(String title, String category, double amount, String data){ // add coordinate
-    //    SQLiteDatabase DB = this.getWritableDatabase();
+    public boolean insertData(String title, String category, double amount, String data){ // add coordinate
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_TITLE, title);
+        contentValues.put(COLUMN_CATEGORY, category);
+        contentValues.put(COLUMN_AMOUNT, amount);
+        contentValues.put(COLUMN_DATE, data);
+        DB.insert(TABLE_NAME, null, contentValues);
 
-   // }
+        return false;
+    }
 }
