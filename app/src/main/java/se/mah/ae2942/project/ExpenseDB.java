@@ -19,9 +19,14 @@ public class ExpenseDB extends SQLiteOpenHelper {
     public static final String COLUMN_COORDINATE = "COORDINATE";
 
 
+    /**
+     * Constructor
+     * @param context - application enviroment
+     */
     public ExpenseDB(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -35,21 +40,38 @@ public class ExpenseDB extends SQLiteOpenHelper {
                 COLUMN_COORDINATE + " TEXT);");
     }
 
+    /**
+     * Updates table schema to requested version
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
-    public boolean insertData(String title, String category, double amount, String data){ // add coordinate
+    /**
+     * Inserts data to database
+     * @param title - title of expense
+     * @param category - category of expense
+     * @param amount - amount of expense
+     * @param date - date when expense is created
+     * @return - returns false if an error acurred
+     */
+    public boolean insertData(String title, String category, double amount, String date){ // add coordinate
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_TITLE, title);
         contentValues.put(COLUMN_CATEGORY, category);
         contentValues.put(COLUMN_AMOUNT, amount);
-        contentValues.put(COLUMN_DATE, data);
-        DB.insert(TABLE_NAME, null, contentValues);
+        contentValues.put(COLUMN_DATE, date);
+        long res = DB.insert(TABLE_NAME, null, contentValues);
 
-        return false;
+        if(res == -1){
+            return false;
+        }else
+            return true;
     }
 }
