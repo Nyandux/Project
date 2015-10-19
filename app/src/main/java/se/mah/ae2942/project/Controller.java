@@ -1,5 +1,7 @@
 package se.mah.ae2942.project;
 
+import com.google.android.gms.maps.MapFragment;
+
 /**
  * Controller class.
  */
