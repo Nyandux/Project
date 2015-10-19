@@ -23,32 +23,19 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private LocationManager locationManager;
+    private LocationListener locationListener;
     private Location location;
-    MainActivity activity;
-
+    private LocationManager locationManager;
+    private String provider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
-        setMap();
-
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
-
-
-    protected void onResume() {
-        super.onResume();
-    }
-
-    protected void onPause() {
-        super.onPause();
     }
 
 
@@ -61,39 +48,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
 //        mMap = googleMap;
 //
 //        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(22, 33);
+//        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    public void setMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("lol").snippet("Snippet"));
+        mMap = googleMap;
         mMap.setMyLocationEnabled(true);
-        locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
-
         Location location = locationManager.getLastKnownLocation(provider);
-
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         double latitude = location.getLatitude();
         double longtitude = location.getLongitude();
-        LatLng latLng = new LatLng(latitude,longtitude);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+        LatLng myPosition = new LatLng(latitude, longtitude);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(latitude,longtitude)).title("you are here noob.").snippet("Consider yourself located"));
-
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
+        mMap.addMarker(new MarkerOptions().position(myPosition).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
     }
 }
