@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ListFragment listFragment = new ListFragment();
+        MapFragment mapFragment = new MapFragment();
         ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout, listFragment).commit();
+        ft.replace(R.id.activity_main_layout, mapFragment).commit();
 
         //temporary code
-        ExpenseDB db = new ExpenseDB(this);
+        //ExpenseDB db = new ExpenseDB(this);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

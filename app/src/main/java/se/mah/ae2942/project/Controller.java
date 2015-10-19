@@ -24,10 +24,6 @@ public class Controller {
         this.userFragment = userFrag;
     }
 
-
-
-
-
     /**
      * Sets local MainActivity.
      * @param main input
