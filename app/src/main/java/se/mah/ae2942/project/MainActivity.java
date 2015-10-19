@@ -3,17 +3,13 @@ package se.mah.ae2942.project;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -38,13 +34,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        MapFragment mapFragment = new MapFragment();
+        GMapsFragment gmapFragment = new GMapsFragment();
         ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout, mapFragment).commit();
-        mapFragment.getMapAsync(this);
+        ft.replace(R.id.activity_main_layout, gmapFragment).commit();
 
-        //temporary code
-        //ExpenseDB db = new ExpenseDB(this);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
