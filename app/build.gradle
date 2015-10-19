@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "se.mah.ae2942.project"
         minSdkVersion 21
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }

@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         ListFragment listFragment = new ListFragment();
         ft.addToBackStack(null);
         ft.replace(R.id.activity_main_layout, listFragment).commit();
+
+        //temporary code
+        ExpenseDB db = new ExpenseDB(this);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,13 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_add_to_list){
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            AddFragment addFragment = new AddFragment();
-            ft.addToBackStack(null);
-            ft.replace(R.id.activity_main_layout, addFragment).commit();
-        }
+
 
         if (id == R.id.action_log_out) {
             FragmentManager fm = getFragmentManager();
@@ -56,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_empty_database) {
             Intent intent = new Intent(MainActivity.this, MapsActivity.class);
             startActivity(intent);
+        }
+
+        if(id == R.id.action_add_to_list){
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            AddFragment addFragment = new AddFragment();
+            ft.addToBackStack(null);
+            ft.replace(R.id.activity_main_layout, addFragment).commit();
         }
 
         return super.onOptionsItemSelected(item);
