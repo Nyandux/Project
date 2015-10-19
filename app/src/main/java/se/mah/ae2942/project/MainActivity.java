@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        googleMapButton = (Button)findViewById(R.id.googleBtn);
-        googleMapButton.setOnClickListener(new GoogleMapButtonListner());
+
+
     }
+
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -93,12 +93,4 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     }
 
-    private class GoogleMapButtonListner implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Log.d("position",res);
-            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-            startActivity(intent);
-        }
-    }
 }
