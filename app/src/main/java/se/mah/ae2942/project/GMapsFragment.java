@@ -24,7 +24,6 @@ public class GMapsFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_gmaps, container, false);
         MapFragment mapFragment = new MapFragment();
-        mapFragment.
         return view;
     }
 
