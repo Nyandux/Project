@@ -1,7 +1,9 @@
 package se.mah.ae2942.project;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,16 +18,39 @@ public class MainActivity extends AppCompatActivity {
 
     private GoogleMap mMap;
     private LocationManager locationManager;
+    private SharedPreferences sharedPreferences;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences("MainActivity",
+                Activity.MODE_PRIVATE);
+
+        //If there is a username from previously, go to ListFragment, else prompt new username.
+        if (sharedPreferences.contains("username")){
+            if(savedInstanceState == null) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ListFragment listFragment = new ListFragment();
+                ft.addToBackStack(null);
+                ft.replace(R.id.activity_main_layout, listFragment).commit();
+            }
+        }
+        else{
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            UserFragment userFragment = new UserFragment();
+            ft.addToBackStack(null);
+            ft.replace(R.id.activity_main_layout, userFragment).commit();
+        }
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ListFragment listFragment = new ListFragment();
         ft.addToBackStack(null);
         ft.replace(R.id.activity_main_layout, listFragment).commit();
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
