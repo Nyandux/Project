@@ -31,9 +31,9 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getMapAsync(this);
-        super.onCreate(savedInstanceState);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     public void onMapReady(GoogleMap googleMap) {
