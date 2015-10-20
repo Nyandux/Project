@@ -2,7 +2,7 @@ package se.mah.ae2942.project;
 
 /**
  * Expense class, contains the different values of a new expense.
- * Worked on: Ragnar Einestam
+ * Worked on: Ragnar Einestam, Arbi Arestakesians
  */
 public class Expense {
 
@@ -10,7 +10,8 @@ public class Expense {
     private String category;
     private String amount;
     private String date;
-    private String coords;
+    private double longitude;
+    private double latitude;
 
     /**
      * Constructor, initiates the local variables to parameter values.
@@ -18,13 +19,16 @@ public class Expense {
      * @param title - title of transaction
      * @param amount - amount of transaction
      * @param date - date of transaction
+     * @param longitude - longitude coordinate of transaction
+     * @param latitude - latitude coordinate of transaction
      */
-    public Expense(String title, String category, String amount, String date, String coords) {
+    public Expense(String title, String category, String amount, String date, double longitude, double latitude) {
         this.category = category;
         this.title = title;
         this.amount = amount;
         this.date = date;
-        this.coords = coords;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
     /**
@@ -60,10 +64,18 @@ public class Expense {
     }
 
     /**
-     * Returns the coords;
-     * @return coords
+     * Returns the longitude coordinate for transaction;
+     * @return longitude coordinate
      */
-    public String getCoords(){
-        return coords;
+    public double getLongitude(){
+        return longitude;
+    }
+
+    /**
+     * Returns the latitude coordinate for transaction;
+     * @return latitude coordinate
+     */
+    public double getLatitude(){
+        return latitude;
     }
 }
