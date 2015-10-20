@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.Iterator;
-
 /**
  * Created by Arbie A on 18/10/15.
  */
@@ -92,14 +90,14 @@ public class ExpenseDB extends SQLiteOpenHelper {
      //   categoryIndex = cursor.getColumnIndex(COLUMN_CATEGORY);
      //   dateIndex = cursor.getColumnIndex(COLUMN_DATE);
 
-        for(int i=0; i<expense.length; i++){
-            result.moveToPosition(i);
-            expense[i] = new Expense(result.getString(result.getColumnIndex(COLUMN_TITLE),
-                    result.getString(result.getColumnIndex(COLUMN_CATEGORY),
-                            result.getString(result.getColumnIndex(COLUMN_AMOUNT),
-                                    ))));
-
-        }
+//        for(int i=0; i<expense.length; i++){
+//            result.moveToPosition(i);
+//            expense[i] = new Expense(result.getString(result.getColumnIndex(COLUMN_TITLE),
+//                    result.getString(result.getColumnIndex(COLUMN_CATEGORY),
+//                            result.getString(result.getColumnIndex(COLUMN_AMOUNT),
+//                                    ))));
+//
+//        }
 
         return expense;
 
