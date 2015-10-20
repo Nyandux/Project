@@ -15,4 +15,14 @@
         android:width="3dp"
         android:color="@color/colorPrimary"
         />
+    <stroke
+        android:width="3dp"
+        android:color="@color/colorBrown1"
+        />
+    <stroke
+        android:width="3dp"
+        android:color="@color/colorGreen1"
+        
+        />
+
 </shape>
