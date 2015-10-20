@@ -18,12 +18,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
 import java.util.Map;
 
 /**
  * MainActivity class..
  */
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity {
 
     private GoogleMap mMap;
     private LocationManager locationManager;
@@ -34,9 +35,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        GMapsFragment gmapFragment = new GMapsFragment();
+        ListFragment listFragment = new ListFragment();
         ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout, gmapFragment).commit();
+        ft.replace(R.id.activity_main_layout, listFragment).commit();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,22 +71,5 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMyLocationEnabled(true);
-        locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
-        Location location = locationManager.getLastKnownLocation(provider);
-        double latitude = location.getLatitude();
-        double longtitude = location.getLongitude();
-
-        LatLng myPosition = new LatLng(latitude, longtitude);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-        mMap.addMarker(new MarkerOptions().position(myPosition).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
     }
 }
