@@ -1,5 +1,7 @@
 package se.mah.ae2942.project;
 
+import android.database.Cursor;
+
 import com.google.android.gms.maps.MapFragment;
 
 /**
@@ -13,6 +15,7 @@ public class Controller {
     private Expense expense;
     private MapFragment mapFragment;
     private UserFragment userFragment;
+    private ExpenseDB db = new ExpenseDB(main);
 
     /**
      * Constructor
@@ -33,7 +36,18 @@ public class Controller {
 
     //add code
     public void setData(Expense expense){
+        db.insertData(
+                expense.getTitle(),
+                expense.getCategory(),
+                expense.getAmount(),
+                expense.getDate()
+                //expense.getLongitude(),
+                //expense.getLatitude(),
+        );
+    }
 
+    public void getData(){
+        Cursor result = db.getData();
     }
 
 

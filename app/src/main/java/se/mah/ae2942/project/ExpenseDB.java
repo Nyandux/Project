@@ -2,6 +2,7 @@ package se.mah.ae2942.project;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,7 +37,7 @@ public class ExpenseDB extends SQLiteOpenHelper {
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_CATEGORY + " TEXT, " +
                 COLUMN_TITLE + " TEXT, " +
-                COLUMN_AMOUNT + " INTEGER, " +
+                COLUMN_AMOUNT + " REAL, " +
                 COLUMN_DATE + " INTEGER, " +
                 COLUMN_LATITUDE + " TEXT, " +
                 COLUMN_LONGITUD + " TEXT);");
@@ -75,6 +76,13 @@ public class ExpenseDB extends SQLiteOpenHelper {
         if (res == -1)
             return false;
         return true;
+    }
+
+
+    public Cursor getData(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("select * from " + TABLE_NAME, null);
+        return result;
     }
 
 

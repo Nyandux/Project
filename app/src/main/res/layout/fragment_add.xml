@@ -8,8 +8,7 @@
     android:layout_marginTop="50dp"
     android:layout_marginLeft="25dp"
     android:layout_marginRight="25dp"
-    android:layout_marginBottom="25dp"
-    >
+    android:layout_marginBottom="25dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,8 +30,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/fragment_add_edittext_title"
             android:layout_marginRight="10dp"
-            android:inputType="text"
-            />
+            android:inputType="text" />
 
     </LinearLayout>
 
@@ -55,8 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/fragment_add_edittext_amount"
             android:layout_marginRight="10dp"
-            android:inputType="number"
-            />
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
 
@@ -73,8 +70,7 @@
             android:text="@string/fragment_add_button_cartegory"
             android:id="@+id/fragment_add_button_category"
             android:layout_margin="5dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/btnlayout"/>
+            android:fontFamily="@string/common_google_play_services_install_button"/>
 
         <Button
             android:layout_width="match_parent"
@@ -83,8 +79,7 @@
             android:id="@+id/fragment_add_button_date"
             android:text="@string/fragment_add_button_date"
             android:layout_margin="5dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/btnlayout"/>
+            android:fontFamily="@string/common_google_play_services_install_button"/>
 
     </LinearLayout>
 
@@ -100,8 +95,7 @@
             android:text="@string/fragment_add_button_finish"
             android:id="@+id/fragment_add_button_finish"
             android:layout_margin="5dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/btnlayout"/>
+            android:fontFamily="@string/common_google_play_services_install_button"/>
 
     </LinearLayout>
 
