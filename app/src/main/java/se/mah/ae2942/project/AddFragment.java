@@ -26,7 +26,7 @@ public class AddFragment extends Fragment {
     private Button btnCategory, btnDate;
     private Controller controller;
     private String date, categorySelected;
-    private String[] categories = {"Entertainment", "Household", "Travel", "Food", "Other"};
+    private String[] categories = {"Entertainment", "Home", "Travel", "Food", "Other"};
     private Calendar cal;
 
     /**

@@ -74,7 +74,7 @@ public class UserFragment extends Fragment {
     private class ButtonCreateUserOnClick implements View.OnClickListener{
 
         public void onClick(View v) {
-            if((getUsername() != null) || getPassword() != null){
+            if((getUsername() != null) && getPassword() != null){
                 sharedPreferences.edit().putString(getUsername(), getPassword()).commit();
                 sharedPreferences.edit().putString("username", getUsername());
 
@@ -82,6 +82,10 @@ public class UserFragment extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 ListFragment listFragment = new ListFragment();
                 ft.replace(R.id.activity_main_layout, listFragment).commit();
+            }
+            else{
+                Toast.makeText(view.getContext().getApplicationContext(),
+                        "Remember to correctly fill out the fields", Toast.LENGTH_SHORT).show();
             }
         }
     }
