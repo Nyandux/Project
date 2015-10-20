@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -42,7 +43,8 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 
         LatLng myPosition = new LatLng(latitude, longtitude);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-        mMap.addMarker(new MarkerOptions().position(myPosition).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(myPosition).title("Marker in Sydney"))
+                .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_money369));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
     }
 }

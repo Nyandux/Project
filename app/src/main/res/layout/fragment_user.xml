@@ -63,7 +63,9 @@
             android:id="@+id/fragment_user_button_login"
             android:text="@string/fragment_user_button_login"
             android:layout_weight="1"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/buttonshape"/>
 
         <Button
             android:layout_width="match_parent"
@@ -71,7 +73,9 @@
             android:id="@+id/fragment_user_button_create_user"
             android:text="@string/fragment_user_button_create_user"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/buttonshape"/>
 
     </LinearLayout>
 
