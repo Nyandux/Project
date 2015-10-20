@@ -11,5 +11,12 @@
     android:fitsSystemWindows="true"
     style="@style/AlertDialog.AppCompat.Light">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainActivityContent">
+
+    </FrameLayout>
+
 
 </android.support.design.widget.CoordinatorLayout>

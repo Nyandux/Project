@@ -84,7 +84,7 @@ public class ListFragment extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 GMapsFragment gMapsFragment = new GMapsFragment();
                 ft.addToBackStack(null);
-                ft.replace(R.id.activity_main_layout, gMapsFragment).commit();
+                ft.replace(R.id.mainActivityContent, gMapsFragment).commit();
             }
 
             if(btnChart.isPressed()){

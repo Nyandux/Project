@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
         ListFragment listFragment = new ListFragment();
         ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout, listFragment).commit();
+        ft.replace(R.id.mainActivityContent, listFragment).commit();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
