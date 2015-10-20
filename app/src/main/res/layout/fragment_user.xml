@@ -65,7 +65,7 @@
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/btnlayout"/>
+            android:background="@drawable/buttonshape"/>
 
         <Button
             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/btnlayout"/>
+            android:background="@drawable/buttonshape"/>
 
     </LinearLayout>
 

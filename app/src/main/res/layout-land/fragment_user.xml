@@ -68,7 +68,7 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:textColor="#4AA8CE"
-            android:background="@drawable/btnlayout"/>
+            android:background="@drawable/buttonshape"/>
 
         <Button
             android:layout_width="match_parent"
@@ -79,7 +79,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
             android:textColor="#4AA8CE"
-            android:background="@drawable/btnlayout"/>
+            android:background="@drawable/buttonshape"/>
 
     </LinearLayout>
 

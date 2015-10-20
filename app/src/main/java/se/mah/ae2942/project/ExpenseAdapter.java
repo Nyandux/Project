@@ -36,7 +36,7 @@ public class ExpenseAdapter extends ArrayAdapter<Expense> {
         Expense expense = getItem(position);
 
         tvTitle.setText(expense.getTitle());
-        tvAmount.setText(expense.getAmount());
+        tvAmount.setText(String.valueOf(expense.getAmount()));
         tvDate.setText(expense.getDate());
 
         switch (expense.getCategory()) {

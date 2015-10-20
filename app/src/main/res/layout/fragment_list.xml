@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:id="@+id/fragment_list_button_chart"
             android:textColor="#4AA8CE"
-            android:background="@drawable/btnlayout"/>
+            android:background="@drawable/buttonshape"/>
 
         <Button
             android:layout_width="match_parent"
@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:id="@+id/fragment_list_button_map"
             android:textColor="#4AA8CE"
-            android:background="@drawable/btnlayout"/>
+            android:background="@drawable/buttonshape"/>
 
     </LinearLayout>
 </LinearLayout>
