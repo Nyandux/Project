@@ -76,8 +76,8 @@ public class AddFragment extends Fragment {
      * Returns the amount input from EditText.
      * @return String amount.
      */
-    public String getAmount(){
-        return etAmount.getText().toString();
+    public Double getAmount(){
+        return Double.parseDouble(etAmount.getText().toString());
     }
 
 

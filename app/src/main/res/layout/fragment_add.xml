@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/fragment_add_edittext_amount"
             android:layout_marginRight="10dp"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
 
