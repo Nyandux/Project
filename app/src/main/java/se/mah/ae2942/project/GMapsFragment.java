@@ -21,27 +21,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class GMapsFragment extends Fragment implements OnMapReadyCallback{
+public class GMapsFragment extends com.google.android.gms.maps.MapFragment implements OnMapReadyCallback{
 
-    private View view;
     private GoogleMap mMap;
     private LocationManager locationManager;
 
     public GMapsFragment() {
 
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_gmaps, container, false);
-        MapFragment mapFragment = new MapFragment();
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.activity_main_layout, mapFragment);
-        mapFragment.getMapAsync(this);
-        return mapFragment.getView();
     }
 
     public void onMapReady(GoogleMap googleMap) {
