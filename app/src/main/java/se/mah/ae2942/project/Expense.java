@@ -12,7 +12,6 @@ public class Expense {
     private String date;
     private double longitude;
     private double latitude;
-    //test
 
     /**
      * Constructor, initiates the local variables to parameter values.
@@ -74,7 +73,7 @@ public class Expense {
 
     /**
      * Returns the latitude coordinate for transaction;
-     * @return longitude coordinate
+     * @return latitude coordinate
      */
     public double getLatitude(){
         return latitude;
