@@ -1,5 +1,7 @@
 package se.mah.ae2942.project;
 
+import android.database.Cursor;
+
 import com.google.android.gms.maps.MapFragment;
 
 /**
@@ -42,6 +44,10 @@ public class Controller {
                 //expense.getLongitude(),
                 //expense.getLatitude(),
         );
+    }
+
+    public void getData(){
+        Cursor result = db.getData();
     }
 
 
