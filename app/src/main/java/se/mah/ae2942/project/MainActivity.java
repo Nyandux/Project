@@ -48,13 +48,6 @@ public class MainActivity extends AppCompatActivity {
             ft.addToBackStack(null);
             ft.replace(R.id.activity_main_layout, userFragment).commit();
         }
-
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ListFragment listFragment = new ListFragment();
-        ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout, listFragment).commit();
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
