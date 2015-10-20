@@ -26,6 +26,19 @@ public class Controller {
         this.userFragment = userFrag;
     }
 
+    //add code
+    public Expense[] getExpense(){
+         return null;
+    }
+
+    //add code
+    public void setData(Expense expense){
+
+    }
+
+
+
+
     /**
      * Sets local MainActivity.
      * @param main input

@@ -16,7 +16,8 @@ public class ExpenseDB extends SQLiteOpenHelper {
     public static final String COLUMN_CATEGORY = "CATEGORY";
     public static final String COLUMN_AMOUNT = "AMOUNT";
     public static final String COLUMN_DATE = "DATE";
-    public static final String COLUMN_COORDINATE = "COORDINATE";
+    public static final String COLUMN_LATITUDE = "LATITUD";
+    public static final String COLUMN_LONGITUD = "LONGITUD";
 
 
     /**
@@ -37,7 +38,8 @@ public class ExpenseDB extends SQLiteOpenHelper {
                 COLUMN_TITLE + " TEXT, " +
                 COLUMN_AMOUNT + " INTEGER, " +
                 COLUMN_DATE + " INTEGER, " +
-                COLUMN_COORDINATE + " TEXT);");
+                COLUMN_LATITUDE + " TEXT, " +
+                COLUMN_LONGITUD + " TEXT);");
     }
 
     /**
@@ -60,18 +62,24 @@ public class ExpenseDB extends SQLiteOpenHelper {
      * @param date - date when expense is created
      * @return - returns false if an error acurred
      */
-    public boolean insertData(String title, String category, double amount, String date){ // add coordinate
+    public boolean insertData(String title, String category, double amount, String date) { // add coordinate
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_TITLE, title);
         contentValues.put(COLUMN_CATEGORY, category);
         contentValues.put(COLUMN_AMOUNT, amount);
         contentValues.put(COLUMN_DATE, date);
+        //put values for coordinate
         long res = DB.insert(TABLE_NAME, null, contentValues);
 
-        if(res == -1){
+        if (res == -1)
             return false;
-        }else
-            return true;
+        return true;
     }
+
+
+
+
+
+
 }
