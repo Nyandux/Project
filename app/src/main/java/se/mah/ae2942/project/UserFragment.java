@@ -2,6 +2,8 @@ package se.mah.ae2942.project;
 
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -44,6 +46,8 @@ public class UserFragment extends Fragment {
         etPassword = (EditText)view.findViewById(R.id.fragment_user_edittext_password);
         btnLogIn = (Button)view.findViewById(R.id.fragment_user_button_login);
         btnCreateUser = (Button)view.findViewById(R.id.fragment_user_button_create_user);
+        btnLogIn.setOnClickListener(new ButtonLogInOnClick());
+        btnCreateUser.setOnClickListener(new ButtonCreateUserOnClick());
 
         sharedPreferences = getActivity().getSharedPreferences("MainActivity",
                 Activity.MODE_PRIVATE);
@@ -71,7 +75,13 @@ public class UserFragment extends Fragment {
 
         public void onClick(View v) {
             if((getUsername() != null) || getPassword() != null){
-                sharedPreferences.edit().putString(getUsername(), getPassword());
+                sharedPreferences.edit().putString(getUsername(), getPassword()).commit();
+                sharedPreferences.edit().putString("username", getUsername());
+
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ListFragment listFragment = new ListFragment();
+                ft.replace(R.id.activity_main_layout, listFragment).commit();
             }
         }
     }
@@ -82,7 +92,12 @@ public class UserFragment extends Fragment {
             if((getUsername() != null) || getPassword() != null){
                 String password = sharedPreferences.getString(getUsername(), null);
                 if(password.equals(getPassword())){
+                    sharedPreferences.edit().putString("username", getUsername());
 
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ListFragment listFragment = new ListFragment();
+                    ft.replace(R.id.activity_main_layout, listFragment).commit();
                 }
                 else{
                     Toast.makeText(view.getContext().getApplicationContext(),
