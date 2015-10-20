@@ -70,7 +70,8 @@
             android:text="@string/fragment_add_button_cartegory"
             android:id="@+id/fragment_add_button_category"
             android:layout_margin="5dp"
-            android:fontFamily="@string/common_google_play_services_install_button"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/buttonshape"/>
 
         <Button
             android:layout_width="match_parent"
@@ -79,7 +80,8 @@
             android:id="@+id/fragment_add_button_date"
             android:text="@string/fragment_add_button_date"
             android:layout_margin="5dp"
-            android:fontFamily="@string/common_google_play_services_install_button"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/buttonshape"/>
 
     </LinearLayout>
 
@@ -95,7 +97,8 @@
             android:text="@string/fragment_add_button_finish"
             android:id="@+id/fragment_add_button_finish"
             android:layout_margin="5dp"
-            android:fontFamily="@string/common_google_play_services_install_button"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/buttonshape"/>
 
     </LinearLayout>
 

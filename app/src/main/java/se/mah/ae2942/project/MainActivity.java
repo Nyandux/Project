@@ -22,9 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.dollarpin_ps2);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         setContentView(R.layout.activity_main);
 

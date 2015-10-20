@@ -2,14 +2,13 @@ package se.mah.ae2942.project;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -175,8 +174,8 @@ public class AddFragment extends Fragment {
     private class ButtonFinishOnClick implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLatitude(),getLongtitude());
-            Log.d("Res",expense.toString());
+//            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLatitude(),getLongtitude());
+//            Log.d("Res",expense.toString());
         }
     }
 }
