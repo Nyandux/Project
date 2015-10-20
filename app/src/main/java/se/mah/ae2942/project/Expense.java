@@ -12,6 +12,7 @@ public class Expense {
     private String date;
     private double longitude;
     private double latitude;
+    //test
 
     /**
      * Constructor, initiates the local variables to parameter values.
