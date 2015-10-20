@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         GMapsFragment gmapFragment = new GMapsFragment();
         ft.addToBackStack(null);
         ft.replace(R.id.activity_main_layout, gmapFragment).commit();
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
