@@ -80,11 +80,11 @@ public class ListFragment extends Fragment {
 
             if (btnMap.isPressed()) {
 
-//                FragmentManager fm = getFragmentManager();
-//                FragmentTransaction ft = fm.beginTransaction();
-//                MapFragment mapFragment = new MapFragment();
-//                ft.addToBackStack(null);
-//                ft.replace(R.id.activity_main_layout, mapFragment).commit();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                GMapsFragment gMapsFragment = new GMapsFragment();
+                ft.addToBackStack(null);
+                ft.replace(R.id.activity_main_layout, gMapsFragment).commit();
             }
 
             if(btnChart.isPressed()){

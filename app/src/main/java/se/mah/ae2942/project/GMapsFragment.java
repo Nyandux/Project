@@ -1,29 +1,23 @@
 package se.mah.ae2942.project;
 
-
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class GMapsFragment extends Fragment implements OnMapReadyCallback{
+public class GMapsFragment extends com.google.android.gms.maps.MapFragment implements OnMapReadyCallback{
 
-    private View view;
     private GoogleMap mMap;
     private LocationManager locationManager;
 
@@ -31,17 +25,9 @@ public class GMapsFragment extends Fragment implements OnMapReadyCallback{
 
     }
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_gmaps, container, false);
-        MapFragment mapFragment = new MapFragment();
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.activity_main_layout, mapFragment);
-        mapFragment.getMapAsync(this);
-        return mapFragment.getView();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        getMapAsync(this);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     public void onMapReady(GoogleMap googleMap) {
