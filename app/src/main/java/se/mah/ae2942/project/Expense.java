@@ -8,7 +8,7 @@ public class Expense {
 
     private String title;
     private String category;
-    private String amount;
+    private double amount;
     private String date;
     private double longitude;
     private double latitude;
@@ -22,7 +22,7 @@ public class Expense {
      * @param longitude - longitude coordinate of transaction
      * @param latitude - latitude coordinate of transaction
      */
-    public Expense(String title, String category, String amount, String date, double longitude, double latitude) {
+    public Expense(String title, String category, double amount, String date, double longitude, double latitude) {
         this.category = category;
         this.title = title;
         this.amount = amount;
@@ -51,7 +51,7 @@ public class Expense {
      * Returns the amount.
      * @return amount
      */
-    public String getAmount(){
+    public double getAmount(){
         return amount;
     }
 
