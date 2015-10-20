@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.Map;
 
 /**
- * MainActivity class.
+ * MainActivity class..
  */
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
