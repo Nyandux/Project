@@ -75,9 +75,11 @@ public class ExpenseDB extends SQLiteOpenHelper {
         //put values for coordinate
         long res = DB.insert(TABLE_NAME, null, contentValues);
 
-        if (res == -1)
+        if (res == -1) {
             return false;
-        return true;
+        } else {
+            return true;
+        }
     }
 
 
