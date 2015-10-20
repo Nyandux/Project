@@ -84,14 +84,13 @@ public class ListFragment extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 GMapsFragment gMapsFragment = new GMapsFragment();
                 ft.addToBackStack(null);
-                ft.replace(R.id.mainActivityContent, gMapsFragment).commit();
+                ft.replace(R.id.activity_main_layout, gMapsFragment).commit();
             }
 
             if(btnChart.isPressed()){
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ChartFragment chartFragment = new ChartFragment();
-               // AddFragment addFragment = new AddFragment();
                 ft.addToBackStack(null);
                 ft.replace(R.id.activity_main_layout, chartFragment).commit();
             }

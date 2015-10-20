@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/activity_main_layout"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     style="@style/AlertDialog.AppCompat.Light">
@@ -14,7 +13,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/mainActivityContent">
+        android:id="@+id/activity_main_layout">
 
     </FrameLayout>
 
