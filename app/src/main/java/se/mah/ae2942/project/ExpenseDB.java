@@ -87,20 +87,16 @@ public class ExpenseDB extends SQLiteOpenHelper {
 
         Expense[] expense = new Expense[result.getCount()];
 
-     //   titleIndex = cursor.getColumnIndex(COLUMN_TITLE);
-     //   amountIndex = cursor.getColumnIndex(COLUMN_AMOUNT);
-     //   categoryIndex = cursor.getColumnIndex(COLUMN_CATEGORY);
-     //   dateIndex = cursor.getColumnIndex(COLUMN_DATE);
+
 
         for(int i=0; i<expense.length; i++){
             result.moveToPosition(i);
-            expense[i] = new Expense(result.getString(result.getColumnIndex(COLUMN_TITLE),
-                    result.getString(result.getColumnIndex(COLUMN_CATEGORY),
-                            result.getString(result.getColumnIndex(COLUMN_AMOUNT),
-                                    ))));
-
+            expense[i] = new Expense(result.getString(result.getColumnIndex(COLUMN_TITLE)),
+                    result.getString(result.getColumnIndex(COLUMN_CATEGORY)),
+                    Double.parseDouble(result.getString(result.getColumnIndex(COLUMN_TITLE))),
+                    result.getString(result.getColumnIndex(COLUMN_DATE)));
         }
-
+        result.close();
         return expense;
 
     }
