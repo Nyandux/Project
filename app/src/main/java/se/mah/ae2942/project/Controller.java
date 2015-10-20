@@ -46,9 +46,10 @@ public class Controller {
         );
     }
 
-    public void getData(){
-        Cursor result = db.getData();
-    }
+    //public Expense[] getData(){
+    //    Cursor result = db.getData();
+    //    Expense[] expenses = new Expense[result.getCount()];
+    //}
 
 
 
