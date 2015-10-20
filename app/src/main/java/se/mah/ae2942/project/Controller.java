@@ -39,6 +39,8 @@ public class Controller {
                 expense.getCategory(),
                 expense.getAmount(),
                 expense.getDate()
+                //expense.getLongitude(),
+                //expense.getLatitude(),
         );
     }
 
