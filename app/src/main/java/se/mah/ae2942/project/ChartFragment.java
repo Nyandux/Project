@@ -26,7 +26,9 @@ public class ChartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_chart, container, false);
+        initiate();
         return view;
+
     }
 
     public void initiate() {
