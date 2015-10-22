@@ -93,20 +93,31 @@ public class UserFragment extends Fragment {
     private class ButtonLogInOnClick implements View.OnClickListener{
 
         public void onClick(View v) {
-            if((getUsername() != null) || getPassword() != null){
+            if((!getUsername().equals("")) && getPassword().equals("")){
                 String password = sharedPreferences.getString(getUsername(), null);
-                if(password.equals(getPassword())){
-                    sharedPreferences.edit().putString("username", getUsername());
 
-                    FragmentManager fm = getFragmentManager();
-                    FragmentTransaction ft = fm.beginTransaction();
-                    ListFragment listFragment = new ListFragment();
-                    ft.replace(R.id.activity_main_layout, listFragment).commit();
-                }
-                else{
+                if(getUsername().equals("") || getPassword().equals("")){
                     Toast.makeText(view.getContext().getApplicationContext(),
                             "Remember to fill out the password correctly", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    if(password.equals(getPassword())){
+                        sharedPreferences.edit().putString("username", getUsername());
+
+                        FragmentManager fm = getFragmentManager();
+                        FragmentTransaction ft = fm.beginTransaction();
+                        ListFragment listFragment = new ListFragment();
+                        ft.replace(R.id.activity_main_layout, listFragment).commit();
+                    }
+                    else{
+                        Toast.makeText(view.getContext().getApplicationContext(),
+                                "Remember to fill out the password correctly", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+            else{
+                Toast.makeText(view.getContext().getApplicationContext(),
+                        "Remember to fill out the password correctly", Toast.LENGTH_SHORT).show();
             }
         }
     }

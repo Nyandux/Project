@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.github.mikephil.charting.charts.PieChart;
 
 /**
  * Google Chart fragment, summarizes the expenses in a donut diagram.
@@ -15,6 +16,7 @@ public class ChartFragment extends Fragment {
 
     private View view;
     private Controller controller;
+    private PieChart pieChart;
 
     /**
      * Constructor
@@ -25,6 +27,10 @@ public class ChartFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_chart, container, false);
         return view;
+    }
+
+    public void initiate() {
+        pieChart.setCenterText("Expenses");
     }
 
     /**
