@@ -30,7 +30,14 @@ public class ChartFragment extends Fragment {
     }
 
     public void initiate() {
+        pieChart = (PieChart)view.findViewById(R.id.fragment_chart_piechart);
+        pieChart.setUsePercentValues(true);
+        pieChart.setDescription("Summary Expenses");
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColorTransparent(true);
+        pieChart.setHoleRadius(7);
         pieChart.setCenterText("Expenses");
+        pieChart.setRotationAngle(0);
     }
 
     /**

@@ -3,6 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="se.mah.ae2942.project.ChartFragment"
-    android:id="@+id/fragment_chart_layout">
+    android:id="@+id/fragment_chart_layout"
+    android:layout_margin="25dp">
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_chart_piechart">
+    </com.github.mikephil.charting.charts.PieChart>
 
 </FrameLayout>
