@@ -16,7 +16,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import java.util.ArrayList;
 
 /**
- * Google Chart fragment, summarizes the expenses in a donut diagram.
+ * Google Chart fragment, summarizes the expenses in a donut diagram..
  * Worked on: Ragnar Einestam
  */
 public class ChartFragment extends Fragment {
