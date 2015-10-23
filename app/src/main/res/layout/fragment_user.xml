@@ -5,20 +5,30 @@
     tools:context="se.mah.ae2942.project.UserFragment"
     android:id="@+id/fragment_user_layout"
     android:orientation="vertical"
-    android:layout_margin="20dp">
+    android:layout_margin="40dp">
 
-    <ImageView
-        android:layout_width="210dp"
-        android:layout_height="250dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/dollar_logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="220dp"
+            android:id="@+id/imageView"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/dollar_logo" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="40dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="30dp">
 
         <Button
             android:layout_width="match_parent"
