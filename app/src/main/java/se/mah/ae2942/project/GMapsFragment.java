@@ -46,5 +46,10 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
         mMap.addMarker(new MarkerOptions().position(myPosition).title("Marker in Sydney"))
                 .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.money_icon));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
+
+        LatLng anotherPosition = new LatLng(20, 15);
+        mMap.addMarker(new MarkerOptions().position(anotherPosition).title("HERB its here"))
+                .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_money369));
+
     }
 }

@@ -37,6 +37,7 @@ public class ChartFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_chart, container, false);
         initiate();
         return view;
+
     }
 
     public void initiate() {

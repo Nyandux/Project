@@ -32,21 +32,20 @@ public class MainActivity extends AppCompatActivity {
                 Activity.MODE_PRIVATE);
 
         //If there is a username from previously, go to ListFragment, else prompt new username.
-        if (sharedPreferences.contains("username")){
-            if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
+            if (sharedPreferences.contains("username")) {
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ListFragment listFragment = new ListFragment();
+                    ft.addToBackStack(null);
+                    ft.replace(R.id.activity_main_layout, listFragment).commit();
+            } else {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ListFragment listFragment = new ListFragment();
+                UserFragment userFragment = new UserFragment();
                 ft.addToBackStack(null);
-                ft.replace(R.id.activity_main_layout, listFragment).commit();
+                ft.replace(R.id.activity_main_layout, userFragment).commit();
             }
-        }
-        else{
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            UserFragment userFragment = new UserFragment();
-            ft.addToBackStack(null);
-            ft.replace(R.id.activity_main_layout, userFragment).commit();
         }
     }
 

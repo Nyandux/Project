@@ -25,6 +25,7 @@ public class UserFragment extends Fragment {
     private EditText etUsername, etPassword;
     private Button btnLogIn, btnCreateUser;
     private SharedPreferences sharedPreferences;
+    private MainActivity mainActivity;
 
     /**
      * Contstructor
