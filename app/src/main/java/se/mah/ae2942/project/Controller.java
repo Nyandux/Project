@@ -40,9 +40,9 @@ public class Controller {
                 expense.getTitle(),
                 expense.getCategory(),
                 expense.getAmount(),
-                expense.getDate()
-                //expense.getLongitude(),
-                //expense.getLatitude(),
+                expense.getDate(),
+                expense.getLongitude(),
+                expense.getLatitude()
         );
     }
 
