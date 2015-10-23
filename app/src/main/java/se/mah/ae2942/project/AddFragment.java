@@ -174,7 +174,7 @@ public class AddFragment extends Fragment {
     private class ButtonFinishOnClick implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-//            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLatitude(),getLongtitude());
+            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(),getLatitude());
 //            Log.d("Res",expense.toString());
         }
     }

@@ -30,11 +30,6 @@ public class Controller {
     }
 
     //add code
-    public Expense[] getExpense(){
-         return null;
-    }
-
-    //add code
     public void setData(Expense expense){
         db.insertData(
                 expense.getTitle(),
@@ -46,19 +41,7 @@ public class Controller {
         );
     }
 
-    //public Expense[] getData(){
-    //    Cursor result = db.getData();
-    //    Expense[] expenses = new Expense[result.getCount()];
-    //}
-
-
-
-
-    /**
-     * Sets local MainActivity.
-     * @param main input
-     */
-    public void setMain(MainActivity main){
-        this.main = main;
+    public Expense[] getData(){
+        return db.getData();
     }
 }
