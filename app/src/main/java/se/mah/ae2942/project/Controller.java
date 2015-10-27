@@ -20,13 +20,8 @@ public class Controller {
     /**
      * Constructor
      */
-    public Controller(MainActivity main, AddFragment addFrag, ChartFragment chartFrag,
-                    Expense expense, UserFragment userFrag){
+    public Controller(MainActivity main){
         this.main = main;
-        this.addFragment = addFragment;
-        this.chartFragment = chartFrag;
-        this.expense = expense;
-        this.userFragment = userFrag;
     }
 
     //add code
