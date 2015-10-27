@@ -1,6 +1,7 @@
 package se.mah.ae2942.project;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,8 +11,11 @@ import android.widget.Toast;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
@@ -85,10 +89,26 @@ public class ChartFragment extends Fragment {
             xList.add(xData[j]);
         }
 
-    }
+        PieDataSet dataSet = new PieDataSet(yList, "Expenses");
+        dataSet.setSliceSpace(3);
+        dataSet.setSelectionShift(5);
 
-    public void dataSet(Entry xList, String yList){
-        //PieDataSet dataSet = new PieDataSet(yData, "asd");
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        for(int c: ColorTemplate.VORDIPLOM_COLORS){
+            colors.add(c);
+        }
+
+        dataSet.setColors(colors);
+
+        PieData data = new PieData(xList, dataSet);
+        data.setValueFormatter(new PercentFormatter());
+        data.setValueTextSize(11f);
+        data.setValueTextColor(Color.GRAY);
+
+        pieChart.setData(data);
+        pieChart.highlightValues(null);
+        pieChart.invalidate();
 
     }
 
