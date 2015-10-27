@@ -1,5 +1,7 @@
 package se.mah.ae2942.project;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.database.Cursor;
 
 import com.google.android.gms.maps.MapFragment;
@@ -15,7 +17,7 @@ public class Controller {
     private ListFragment listFragment;
     private UserFragment userFragment;
     private ChartFragment chartFragment;
-    private GMapsFragment gMapFragment;
+    private GMapsFragment gMapsFragment;
     private AddFragment addFragment;
 
     /**
@@ -30,7 +32,7 @@ public class Controller {
         this.listFragment = listFragment;
         this.userFragment = userFragment;
         this.chartFragment = chartFragment;
-        this.gMapFragment = gMapFragment;
+        this.gMapsFragment = gMapsFragment;
         this.addFragment = addFragment;
 
         listFragment.setController(this);
@@ -39,12 +41,44 @@ public class Controller {
         gMapsFragment.setController(this);
         addFragment.setController(this);
 
-        listFragment.setListViewAdapter();
-
 
     }
 
-    //add code
+    public void setViewListFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.activity_main_layout, listFragment).commit();
+
+    }
+
+    public void setViewAddFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.activity_main_layout, addFragment).commit();
+
+    }
+
+    public void setViewChartFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.activity_main_layout, chartFragment).commit();
+
+    }
+
+    public void setViewUserFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.activity_main_layout, userFragment).commit();
+
+    }
+
+    public void setViewGmapsFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.activity_main_layout, gMapsFragment).commit();
+
+    }
+
     public void setData(Expense expense){
         db.insertData(expense);
     }

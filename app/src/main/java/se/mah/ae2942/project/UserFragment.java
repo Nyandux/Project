@@ -83,7 +83,7 @@ public class UserFragment extends Fragment {
                 sharedPreferences.edit().putString(getUsername(), getPassword()).commit();
                 sharedPreferences.edit().putString("username", getUsername());
 
-
+                controller.setViewListFragment();
 
 
                 //Listfragment create user
@@ -113,6 +113,7 @@ public class UserFragment extends Fragment {
                     if(password.equals(getPassword())){
                         sharedPreferences.edit().putString("username", getUsername());
 
+                        controller.setViewListFragment();
                         //ListFragment
 
 //                        FragmentManager fm = getFragmentManager();

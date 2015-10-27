@@ -85,11 +85,11 @@ public class ListFragment extends Fragment {
 
 
             if (btnMap.isPressed()) {
-                //GMAPSFRAGMENT
+                controller.setViewGmapsFragment();
             }
 
             if(btnChart.isPressed()){
-                //CHARTFRAGMENT
+                controller.setViewChartFragment();
             }
         }
     }

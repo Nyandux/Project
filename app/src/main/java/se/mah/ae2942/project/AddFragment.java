@@ -176,6 +176,7 @@ public class AddFragment extends Fragment {
         public void onClick(View v) {
             Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(),getLatitude());
             controller.setData(expense);
+            controller.setViewListFragment();
         }
     }
 }

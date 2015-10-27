@@ -48,18 +48,9 @@ public class MainActivity extends AppCompatActivity {
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
             if (sharedPreferences.contains("username")) {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ListFragment listFragment = new ListFragment();
-                listFragment.setController(controller);
-                ft.addToBackStack(null);
-                ft.replace(R.id.activity_main_layout, listFragment).commit();
+                controller.setViewListFragment();
             } else {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                UserFragment userFragment = new UserFragment();
-                ft.addToBackStack(null);
-                ft.replace(R.id.activity_main_layout, userFragment).commit();
+                controller.setViewUserFragment();
             }
         }
     }
@@ -75,11 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (id == R.id.action_log_out) {
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            UserFragment userFragment = new UserFragment();
-            ft.addToBackStack(null);
-            ft.replace(R.id.activity_main_layout, userFragment).commit();
+            controller.setViewUserFragment();
         }
 
         if (id == R.id.action_empty_database) {
@@ -88,12 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(id == R.id.action_add_to_list){
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            AddFragment addFragment = new AddFragment();
-            addFragment.setController(controller);
-            ft.addToBackStack(null);
-            ft.replace(R.id.activity_main_layout, addFragment).commit();
+            controller.setViewAddFragment();
         }
 
         return super.onOptionsItemSelected(item);
