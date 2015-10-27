@@ -10,14 +10,23 @@ import com.google.android.gms.maps.MapFragment;
 public class Controller {
 
     private MainActivity main;
+    private ListFragment listFragment;
+    private UserFragment userFragment;
+    private ChartFragment chartFragment;
+    private GMapsFragment gMapsFragment;
     private ExpenseDB db;
 
     /**
      * Constructor
      */
-    public Controller(MainActivity main){
+    public Controller(MainActivity main, ListFragment listFragment, UserFragment userFragment, ChartFragment chartFragment,
+                      GMapsFragment gMapsFragment){
         db = new ExpenseDB(main);
         this.main = main;
+        this.listFragment = listFragment;
+        this.userFragment = userFragment;
+        this.chartFragment = chartFragment;
+        this.gMapsFragment = gMapsFragment;
     }
 
     //add code

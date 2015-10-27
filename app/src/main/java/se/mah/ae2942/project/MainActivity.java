@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MainActivity",
                 Activity.MODE_PRIVATE);
 
+
         controller = new Controller(this);
 
         //If there is a username from previously, go to ListFragment, else prompt new username.
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             if (sharedPreferences.contains("username")) {
                 //LISTFRAGMENT
             } else {
-                //USERFRAGMENT
+
             }
         }
     }
