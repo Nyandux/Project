@@ -45,6 +45,6 @@ public class Controller {
     }
 
     public void dropDatabase(){
-        db.emptyDateBase();
+        db.dropTable();
     }
 }

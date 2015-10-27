@@ -104,8 +104,9 @@ public class ExpenseDB extends SQLiteOpenHelper {
         return expense;
     }
     
-    public void emptyDateBase(){
-        this.emptyDateBase();
+    public void dropTable(){
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(this.TABLE_NAME, null, null);
     }
 
 
