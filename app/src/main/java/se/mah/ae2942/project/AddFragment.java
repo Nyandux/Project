@@ -34,7 +34,7 @@ public class AddFragment extends Fragment {
     private Calendar cal;
     private Location location;
     private LocationManager locationManager;
-    private Double latitude,longtitude;
+    private double latitude,longtitude;
 
     /**
      * Contstructor.
@@ -83,7 +83,7 @@ public class AddFragment extends Fragment {
      * Returns the amount input from EditText.
      * @return String amount.
      */
-    public Double getAmount(){
+    public double getAmount(){
         return Double.parseDouble(etAmount.getText().toString());
     }
 
@@ -95,7 +95,7 @@ public class AddFragment extends Fragment {
         return date.toString();
     }
 
-    public Double getLatitude(){
+    public double getLatitude(){
         locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
@@ -105,7 +105,7 @@ public class AddFragment extends Fragment {
         return latitude;
     }
 
-    public Double getLongtitude(){
+    public double getLongtitude(){
         locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
