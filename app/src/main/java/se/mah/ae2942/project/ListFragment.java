@@ -52,6 +52,12 @@ public class ListFragment extends Fragment {
         btnChart.setOnClickListener(new ButtonListener());
     }
 
+    @Override
+    public void onResume() {
+        setListViewAdapter(controller.createListAdapter());
+        super.onResume();
+    }
+
     /**
      * Set Listview Adapter.
      *

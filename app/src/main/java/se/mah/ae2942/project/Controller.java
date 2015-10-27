@@ -39,4 +39,8 @@ public class Controller {
     public Expense[] getData(){
         return db.getData();
     }
+
+    public ExpenseAdapter createListAdapter(){
+        return new ExpenseAdapter(main, db.getData());
+    }
 }
