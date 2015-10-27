@@ -103,6 +103,10 @@ public class ExpenseDB extends SQLiteOpenHelper {
         result.close();
         return expense;
     }
+    
+    public void emptyDateBase(){
+        this.emptyDateBase();
+    }
 
     public void emptyDatabase(){
         emptyDatabase();
