@@ -104,4 +104,9 @@ public class ExpenseDB extends SQLiteOpenHelper {
         return expense;
     }
 
+    public void emptyDatabase(){
+        emptyDatabase();
+
+    }
+
 }

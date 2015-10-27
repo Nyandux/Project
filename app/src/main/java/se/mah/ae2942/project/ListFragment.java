@@ -59,8 +59,7 @@ public class ListFragment extends Fragment {
     }
 
     /**
-     * Set Listview Adapter.
-     *
+     * Set Listview Adapter
      * @param expenseAdapter input
      */
     public void setListViewAdapter(ExpenseAdapter expenseAdapter) {

@@ -43,4 +43,8 @@ public class Controller {
     public ExpenseAdapter createListAdapter(){
         return new ExpenseAdapter(main, db.getData());
     }
+
+    public void dropDatabase(){
+        db.emptyDatabase();
+    }
 }
