@@ -22,14 +22,7 @@ public class Controller {
 
     //add code
     public void setData(Expense expense){
-        db.insertData(
-                expense.getTitle(),
-                expense.getCategory(),
-                expense.getAmount(),
-                expense.getDate(),
-                expense.getLongitude(),
-                expense.getLatitude()
-        );
+        db.insertData(expense);
     }
 
     public Expense[] getData(){

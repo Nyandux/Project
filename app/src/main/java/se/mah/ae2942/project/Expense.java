@@ -19,8 +19,8 @@ public class Expense {
      * @param title - title of transaction
      * @param amount - amount of transaction
      * @param date - date of transaction
-     * @param //longitude - longitude coordinate of transaction
-     * @param //latitude - latitude coordinate of transaction
+     * @param longitude - longitude coordinate of transaction
+     * @param latitude - latitude coordinate of transaction
      */
 
     //add double longitude, double latitude
