@@ -25,8 +25,8 @@ public class Controller {
      * Constructor
      */
 
-    public Controller(MainActivity mainActivity, ListFragment listFragment, UserFragment userFragment, ChartFragment chartFragment,
-                      GMapsFragment gMapsFragment, AddFragment addFragment) {
+    public Controller(MainActivity mainActivity, ListFragment listFragment, UserFragment userFragment,
+                      ChartFragment chartFragment, GMapsFragment gMapsFragment, AddFragment addFragment) {
 
         db = new ExpenseDB(mainActivity);
         this.mainActivity = mainActivity;
@@ -71,7 +71,7 @@ public class Controller {
         FragmentManager fm = mainActivity.getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout,gMapFragment).commit();
+        ft.replace(R.id.activity_main_layout, gMapFragment).commit();
     }
 
     public void setViewChartFragment(){
