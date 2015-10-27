@@ -25,9 +25,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
     private Controller controller;
 
 
-    public GMapsFragment() {
-
-    }
+    public GMapsFragment() {}
 
     /**
      * Sets local controller.
