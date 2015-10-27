@@ -5,18 +5,4 @@
     <color name="colorAccent">#4AA8CE</color>
     <color name="primary_text_default_material_light">#94000000</color>
 
-    <!--#56C4F1-->
-
-
-    <!--<color name="colorPrimary">#4C1A1A</color>-->
-    <!--<color name="colorPrimaryDark">#4C1A1A</color>-->
-    <!--<color name="colorAccent">#4C1A1A</color>-->
-
-
-    <!--<color name="colorPrimary">#27C31F</color>-->
-    <!--<color name="colorPrimaryDark">#27C31F</color>-->
-    <!--<color name="colorAccent">#27C31F</color>-->
-
-    <color name="colorBrown1">#4C1A1A</color>
-    <color name="colorGreen1">#27C31F</color>
 </resources>

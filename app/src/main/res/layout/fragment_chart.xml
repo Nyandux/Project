@@ -5,7 +5,4 @@
     tools:context="se.mah.ae2942.project.ChartFragment"
     android:id="@+id/fragment_chart_layout"
     android:layout_margin="25dp">
-
-
-
 </FrameLayout>
