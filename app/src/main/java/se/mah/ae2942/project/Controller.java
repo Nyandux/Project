@@ -1,5 +1,7 @@
 package se.mah.ae2942.project;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.database.Cursor;
 
 import com.google.android.gms.maps.MapFragment;
@@ -38,10 +40,41 @@ public class Controller {
         chartFragment.setController(this);
         gMapsFragment.setController(this);
         addFragment.setController(this);
+    }
 
-        listFragment.setListViewAdapter();
+    public void setViewListFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.activity_main_layout, listFragment).commit();
+    }
 
+    public void setViewAddFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.activity_main_layout, addFragment).commit();
+    }
 
+    public void setViewGmapsFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.activity_main_layout,gMapFragment).commit();
+    }
+
+    public void setViewChartFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.activity_main_layout, chartFragment).commit();
+    }
+
+    public void setViewUserFragment(){
+        FragmentManager fm = mainActivity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.activity_main_layout, userFragment).commit();
     }
 
     //add code
