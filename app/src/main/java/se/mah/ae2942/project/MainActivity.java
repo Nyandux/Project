@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
             if (sharedPreferences.contains("username")) {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ListFragment listFragment = new ListFragment();
+                listFragment = new ListFragment();
                 listFragment.setController(controller);
                 ft.addToBackStack(null);
                 ft.replace(R.id.activity_main_layout, listFragment).commit();
             } else {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                UserFragment userFragment = new UserFragment();
+                userFragment = new UserFragment();
                 ft.addToBackStack(null);
                 ft.replace(R.id.activity_main_layout, userFragment).commit();
             }
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_log_out) {
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            UserFragment userFragment = new UserFragment();
+            userFragment = new UserFragment();
             ft.addToBackStack(null);
             ft.replace(R.id.activity_main_layout, userFragment).commit();
         }
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if(id == R.id.action_add_to_list){
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            AddFragment addFragment = new AddFragment();
+            addFragment = new AddFragment();
             addFragment.setController(controller);
             ft.addToBackStack(null);
             ft.replace(R.id.activity_main_layout, addFragment).commit();

@@ -15,7 +15,7 @@ public class Controller {
     private ListFragment listFragment;
     private UserFragment userFragment;
     private ChartFragment chartFragment;
-    private GMapsFragment gMapFragment;
+    private GMapsFragment gMapsFragment;
     private AddFragment addFragment;
 
     /**
@@ -30,7 +30,7 @@ public class Controller {
         this.listFragment = listFragment;
         this.userFragment = userFragment;
         this.chartFragment = chartFragment;
-        this.gMapFragment = gMapFragment;
+        this.gMapsFragment = gMapsFragment;
         this.addFragment = addFragment;
 
         listFragment.setController(this);
@@ -40,7 +40,6 @@ public class Controller {
         addFragment.setController(this);
 
         listFragment.setListViewAdapter();
-
 
     }
 
