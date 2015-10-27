@@ -17,7 +17,6 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.google.android.gms.vision.Frame;
 
 import java.util.ArrayList;
 
@@ -52,9 +51,10 @@ public class ChartFragment extends Fragment {
         pieChart = new PieChart(getActivity());
         layout.addView(pieChart);
         pieChart.setUsePercentValues(true);
+        pieChart.setDescription("Summary Expenses: ");
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColorTransparent(true);
-        pieChart.setHoleRadius(20);
+        pieChart.setHoleRadius(25);
         pieChart.setRotationAngle(0);
         pieChart.setRotationEnabled(true);
         pieChart.setOnChartValueSelectedListener(new ChartListener());
@@ -74,6 +74,42 @@ public class ChartFragment extends Fragment {
      */
     public void setController(Controller controller){
         this.controller = controller;
+    }
+
+    /**
+     * Adds expenses to the pieChart.
+     */
+    public void addExpensesToChart(Expense[] expense){
+
+        ArrayList<Entry> yList = new ArrayList<Entry>();
+        ArrayList<String> xList = new ArrayList<String>();
+
+        for(int i = 0; i < expense.length; i++){
+            yList.add(new Entry(Integer.valueOf(String.valueOf(expense[i].getAmount())) , i));
+            xList.add(expense[i].getCategory());
+        }
+
+        PieDataSet dataSet = new PieDataSet(yList, "Expenses");
+        dataSet.setSliceSpace(2);
+        dataSet.setSelectionShift(5);
+
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        for(int c: ColorTemplate.LIBERTY_COLORS){
+            colors.add(c);
+        }
+
+        dataSet.setColors(colors);
+
+        PieData data = new PieData(xList, dataSet);
+        data.setValueFormatter(new PercentFormatter());
+        data.setValueTextSize(12f);
+        data.setValueTextColor(Color.WHITE);
+
+        pieChart.setData(data);
+        pieChart.highlightValues(null);
+        pieChart.invalidate();
+
     }
 
     /**
@@ -107,7 +143,7 @@ public class ChartFragment extends Fragment {
 
         PieData data = new PieData(xList, dataSet);
         data.setValueFormatter(new PercentFormatter());
-        data.setValueTextSize(11f);
+        data.setValueTextSize(12f);
         data.setValueTextColor(Color.WHITE);
 
         pieChart.setData(data);
@@ -119,7 +155,7 @@ public class ChartFragment extends Fragment {
     private class ChartListener implements com.github.mikephil.charting.listener.OnChartValueSelectedListener{
 
         public void onValueSelected(Entry entry, int position, Highlight timeHighlighted) {
-            Toast.makeText(getActivity(), entry.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), entry.getData().toString(), Toast.LENGTH_SHORT).show();
         }
 
         public void onNothingSelected() {
