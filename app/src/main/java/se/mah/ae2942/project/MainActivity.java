@@ -18,10 +18,10 @@ import com.google.android.gms.maps.GoogleMap;
 public class MainActivity extends AppCompatActivity {
     Controller controller;
     private UserFragment userFragment;
-    private AddFragment addFragment;
     private GMapsFragment gMapsFragment;
     private ChartFragment chartFragment;
     private ListFragment listFragment;
+    private AddFragment addFragment;
 
     private SharedPreferences sharedPreferences;
 
@@ -37,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 Activity.MODE_PRIVATE);
 
         userFragment = new UserFragment();
-        addFragment = new AddFragment();
         gMapsFragment = new GMapsFragment();
         chartFragment = new ChartFragment();
         listFragment = new ListFragment();
+        addFragment = new AddFragment();
 
 
-        controller = new Controller(this,listFragment,userFragment,chartFragment,gMapsFragment);
+        controller = new Controller(this,listFragment,userFragment,chartFragment,gMapsFragment, addFragment);
 
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {

@@ -50,7 +50,7 @@ public class ListFragment extends Fragment {
         btnMap = (Button) view.findViewById(R.id.fragment_list_button_map);
         btnMap.setOnClickListener(new ButtonListener());
         btnChart.setOnClickListener(new ButtonListener());
-        setListViewAdapter();
+
     }
 
     @Override

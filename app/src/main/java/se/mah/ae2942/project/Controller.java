@@ -16,20 +16,32 @@ public class Controller {
     private UserFragment userFragment;
     private ChartFragment chartFragment;
     private GMapsFragment gMapFragment;
+    private AddFragment addFragment;
 
     /**
      * Constructor
      */
 
-    public Controller(MainActivity mainActivity, ListFragment listFragment, UserFragment userFragment, ChartFragment chartFragment, GMapsFragment gMapsFragment) {
+    public Controller(MainActivity mainActivity, ListFragment listFragment, UserFragment userFragment, ChartFragment chartFragment,
+                      GMapsFragment gMapsFragment, AddFragment addFragment) {
 
         db = new ExpenseDB(mainActivity);
-
         this.mainActivity = mainActivity;
         this.listFragment = listFragment;
         this.userFragment = userFragment;
         this.chartFragment = chartFragment;
-        this.gMapFragment = gMapsFragment;
+        this.gMapFragment = gMapFragment;
+        this.addFragment = addFragment;
+
+        listFragment.setController(this);
+        userFragment.setController(this);
+        chartFragment.setController(this);
+        gMapsFragment.setController(this);
+        addFragment.setController(this);
+
+        listFragment.setListViewAdapter();
+
+
     }
 
     //add code
