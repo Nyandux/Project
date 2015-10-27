@@ -48,9 +48,18 @@ public class MainActivity extends AppCompatActivity {
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
             if (sharedPreferences.contains("username")) {
-                controller.setViewListFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ListFragment listFragment = new ListFragment();
+                listFragment.setController(controller);
+                ft.addToBackStack(null);
+                ft.replace(R.id.activity_main_layout, listFragment).commit();
             } else {
-                controller.setViewUserFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                UserFragment userFragment = new UserFragment();
+                ft.addToBackStack(null);
+                ft.replace(R.id.activity_main_layout, userFragment).commit();
             }
         }
     }
@@ -66,7 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (id == R.id.action_log_out) {
-            controller.setViewUserFragment();
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            UserFragment userFragment = new UserFragment();
+            ft.addToBackStack(null);
+            ft.replace(R.id.activity_main_layout, userFragment).commit();
         }
 
         if (id == R.id.action_empty_database) {
@@ -75,7 +88,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(id == R.id.action_add_to_list){
-            controller.setViewAddFragment();
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            AddFragment addFragment = new AddFragment();
+            addFragment.setController(controller);
+            ft.addToBackStack(null);
+            ft.replace(R.id.activity_main_layout, addFragment).commit();
         }
 
         return super.onOptionsItemSelected(item);
