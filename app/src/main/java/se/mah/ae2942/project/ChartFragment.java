@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -16,6 +17,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.gms.vision.Frame;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 public class ChartFragment extends Fragment {
 
     private View view;
+    private FrameLayout layout;
     private Controller controller;
     private PieChart pieChart;
     private String[] xData = {"Entertainment", "Home", "Travel", "Food", "Other"};
@@ -45,16 +48,17 @@ public class ChartFragment extends Fragment {
     }
 
     public void initiate() {
-        pieChart = (PieChart)view.findViewById(R.id.fragment_chart_piechart);
+        layout = (FrameLayout)view.findViewById(R.id.fragment_chart_layout);
+        pieChart = new PieChart(getActivity());
+        layout.addView(pieChart);
         pieChart.setUsePercentValues(true);
-        pieChart.setDescription("Summary Expenses");
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColorTransparent(true);
-        pieChart.setHoleRadius(7);
-        pieChart.setCenterText("Expenses");
+        pieChart.setHoleRadius(20);
         pieChart.setRotationAngle(0);
         pieChart.setRotationEnabled(true);
         pieChart.setOnChartValueSelectedListener(new ChartListener());
+
         addExpensesToChart();
 
         Legend legend = pieChart.getLegend();
@@ -90,12 +94,12 @@ public class ChartFragment extends Fragment {
         }
 
         PieDataSet dataSet = new PieDataSet(yList, "Expenses");
-        dataSet.setSliceSpace(3);
+        dataSet.setSliceSpace(2);
         dataSet.setSelectionShift(5);
 
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
-        for(int c: ColorTemplate.VORDIPLOM_COLORS){
+        for(int c: ColorTemplate.LIBERTY_COLORS){
             colors.add(c);
         }
 
@@ -104,7 +108,7 @@ public class ChartFragment extends Fragment {
         PieData data = new PieData(xList, dataSet);
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(11f);
-        data.setValueTextColor(Color.GRAY);
+        data.setValueTextColor(Color.WHITE);
 
         pieChart.setData(data);
         pieChart.highlightValues(null);
