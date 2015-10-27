@@ -46,6 +46,9 @@ public class ChartFragment extends Fragment {
 
     }
 
+    /**
+     * Initiate variables
+     */
     public void initiate() {
         layout = (FrameLayout)view.findViewById(R.id.fragment_chart_layout);
         pieChart = new PieChart(getActivity());
