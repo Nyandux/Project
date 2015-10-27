@@ -61,6 +61,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 
     }
 
+
     public void setAllPosition(){
         double latitude,longtitude;
         expenses = controller.getData();

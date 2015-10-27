@@ -16,8 +16,6 @@ import com.google.android.gms.maps.GoogleMap;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private GoogleMap mMap;
-    private LocationManager locationManager;
     private SharedPreferences sharedPreferences;
 
     protected void onCreate(Bundle savedInstanceState) {
