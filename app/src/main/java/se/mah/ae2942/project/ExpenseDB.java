@@ -57,30 +57,6 @@ public class ExpenseDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    /**
-     * Inserts data to database
-     * @param title - title of expense
-     * @param category - category of expense
-     * @param amount - amount of expense
-     * @param date - date when expense is created
-     * @return - returns false if an error acurred
-     */
-    public boolean insertData(String title, String category, double amount, String date) { // add coordinate
-        SQLiteDatabase DB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_TITLE, title);
-        contentValues.put(COLUMN_CATEGORY, category);
-        contentValues.put(COLUMN_AMOUNT, amount);
-        contentValues.put(COLUMN_DATE, date);
-        //put values for coordinate
-        long res = DB.insert(TABLE_NAME, null, contentValues);
-
-        if (res == -1) {
-            return false;
-        } else {
-            return true;
-        }
-    }
 
     /**
      * Inserts data to database
@@ -127,24 +103,5 @@ public class ExpenseDB extends SQLiteOpenHelper {
         result.close();
         return expense;
     }
-
-
-    /**
-    public Expense[] getData(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor result = db.rawQuery("select * from " + TABLE_NAME, null);
-
-        Expense[] expense = new Expense[result.getCount()];
-
-        for(int i=0; i<expense.length; i++){
-            result.moveToPosition(i);
-            expense[i] = new Expense(result.getString(result.getColumnIndex(COLUMN_TITLE)),
-                    result.getString(result.getColumnIndex(COLUMN_CATEGORY)),
-                    Double.parseDouble(result.getString(result.getColumnIndex(COLUMN_TITLE))),
-                    result.getString(result.getColumnIndex(COLUMN_DATE)));
-        }
-        result.close();
-        return expense;
-    }*/
 
 }
