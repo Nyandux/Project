@@ -25,7 +25,7 @@ public class UserFragment extends Fragment {
     private EditText etUsername, etPassword;
     private Button btnLogIn, btnCreateUser;
     private SharedPreferences sharedPreferences;
-    private MainActivity mainActivity;
+    private Controller controller;
 
     /**
      * Contstructor
@@ -61,6 +61,10 @@ public class UserFragment extends Fragment {
     public String getUsername(){
 
         return etUsername.getText().toString();
+    }
+
+    public void setController(Controller controller){
+        this.controller = controller;
     }
 
     /**

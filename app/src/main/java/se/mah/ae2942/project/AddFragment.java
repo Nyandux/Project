@@ -68,7 +68,6 @@ public class AddFragment extends Fragment {
      * @param controller input
      */
     public void setController(Controller controller){
-
         this.controller = controller;
     }
 

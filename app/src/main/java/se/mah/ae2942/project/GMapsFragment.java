@@ -29,6 +29,14 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 
     }
 
+    /**
+     * Sets local controller.
+     * @param controller controller
+     */
+    public void setController(Controller controller){
+        this.controller = controller;
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getMapAsync(this);
         return super.onCreateView(inflater, container, savedInstanceState);
