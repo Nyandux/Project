@@ -58,21 +58,23 @@ public class ExpenseDB extends SQLiteOpenHelper {
     }
 
 
-
     /**
      * Inserts data to database
-     * @param expense - expense to add to database
+     * @param title - title of expense
+     * @param category - category of expense
+     * @param amount - amount of expense
+     * @param date - date when expense is created
      * @return - returns false if an error acurred
      */
-    public boolean insertData(Expense expense) { // add coordinate
+    public boolean insertData(String title, String category, double amount, String date, double longitude, double latitude) { // add coordinate
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_TITLE, expense.getTitle());
-        contentValues.put(COLUMN_CATEGORY, expense.getCategory());
-        contentValues.put(COLUMN_AMOUNT, expense.getAmount());
-        contentValues.put(COLUMN_DATE, expense.getDate());
-        contentValues.put(COLUMN_LONGITUD, expense.getLatitude());
-        contentValues.put(COLUMN_LATITUDE, expense.getLongitude());
+        contentValues.put(COLUMN_TITLE, title);
+        contentValues.put(COLUMN_CATEGORY, category);
+        contentValues.put(COLUMN_AMOUNT, amount);
+        contentValues.put(COLUMN_DATE, date);
+        contentValues.put(COLUMN_LONGITUD, date);
+        contentValues.put(COLUMN_LATITUDE, date);
         //put values for coordinate
         long res = DB.insert(TABLE_NAME, null, contentValues);
 
@@ -102,9 +104,8 @@ public class ExpenseDB extends SQLiteOpenHelper {
         return expense;
     }
     
-    public void dropTable(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(this.TABLE_NAME, null, null);
+    public void emptyDateBase(){
+        this.emptyDateBase();
     }
 
 
