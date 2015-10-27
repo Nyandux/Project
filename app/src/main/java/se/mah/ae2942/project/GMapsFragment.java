@@ -57,7 +57,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 //
 //        LatLng anotherPosition = new LatLng(20, 15);
 //        mMap.addMarker(new MarkerOptions().position(anotherPosition).title("HERB its here"))
-//                .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_money369));
+//                .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.map_pin));
 
     }
 
@@ -75,7 +75,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
             LatLng myPosition = new LatLng(latitude,longtitude);
             mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
             mMap.addMarker(new MarkerOptions().position(myPosition).title("Här blev jag rånad"))
-                    .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_money369));
+                    .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.map_pin));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
         }
     }
