@@ -9,13 +9,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.google.android.gms.maps.GoogleMap;
 
 /**
  * MainActivity class..
  */
 public class MainActivity extends AppCompatActivity {
-
+    Controller controller;
 
     private SharedPreferences sharedPreferences;
 
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MainActivity",
                 Activity.MODE_PRIVATE);
 
-        Controller controller = new Controller(this);
+        controller = new Controller(this);
 
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
@@ -70,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_empty_database) {
-
+            controller.dropDatabase();
+            Toast.makeText(this, "Database dropped", Toast.LENGTH_SHORT).show();
         }
 
         if(id == R.id.action_add_to_list){
