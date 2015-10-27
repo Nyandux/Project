@@ -58,7 +58,6 @@ public class ExpenseDB extends SQLiteOpenHelper {
     }
 
 
-
     /**
      * Inserts data to database
      * @param expense - expense to add to database

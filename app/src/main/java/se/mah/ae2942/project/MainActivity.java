@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             AddFragment addFragment = new AddFragment();
+            addFragment.setController(controller);
             ft.addToBackStack(null);
             ft.replace(R.id.activity_main_layout, addFragment).commit();
         }
