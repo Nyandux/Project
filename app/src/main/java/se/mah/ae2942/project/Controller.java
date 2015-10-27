@@ -15,12 +15,13 @@ public class Controller {
     private Expense expense;
     private MapFragment mapFragment;
     private UserFragment userFragment;
-    private ExpenseDB db = new ExpenseDB(main);
+    private ExpenseDB db;
 
     /**
      * Constructor
      */
     public Controller(MainActivity main){
+        db = new ExpenseDB(main);
         this.main = main;
     }
 
