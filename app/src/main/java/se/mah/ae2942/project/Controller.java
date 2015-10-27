@@ -22,7 +22,7 @@ public class Controller {
 
     //add code
     public void setData(Expense expense){
-       // db.insertData(expense);
+        db.insertData(expense);
     }
 
     public Expense[] getData(){
