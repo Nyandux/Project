@@ -10,11 +10,6 @@ import com.google.android.gms.maps.MapFragment;
 public class Controller {
 
     private MainActivity main;
-    private AddFragment addFragment;
-    private ChartFragment chartFragment;
-    private Expense expense;
-    private MapFragment mapFragment;
-    private UserFragment userFragment;
     private ExpenseDB db;
 
     /**
