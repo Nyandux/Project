@@ -73,7 +73,7 @@ public class ExpenseDB extends SQLiteOpenHelper {
         contentValues.put(COLUMN_DATE, expense.getDate());
         contentValues.put(COLUMN_LONGITUD, expense.getLongitude());
         contentValues.put(COLUMN_LATITUDE, expense.getLatitude());
-        //put values for coordinate
+
         long res = DB.insert(TABLE_NAME, null, contentValues);
 
         if (res == -1) {
