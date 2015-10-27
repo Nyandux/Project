@@ -74,8 +74,8 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 
             LatLng myPosition = new LatLng(latitude,longtitude);
             mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-            mMap.addMarker(new MarkerOptions().position(myPosition).title("Här blev jag rånade"))
-                    .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.money_icon));
+            mMap.addMarker(new MarkerOptions().position(myPosition).title("Här blev jag rånad"))
+                    .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action_money369));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
         }
     }
@@ -93,8 +93,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 
         LatLng myPosition = new LatLng(latitude,longtitude);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-        mMap.addMarker(new MarkerOptions().position(myPosition).title("Här kommer jag att bli rånad"))
-                .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.money_icon));
+        mMap.addMarker(new MarkerOptions().position(myPosition).title("Här kommer jag att bli rånad"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
     }
 

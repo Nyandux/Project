@@ -31,14 +31,26 @@
             android:layout_height="wrap_content"
             android:text="Chart"
             android:layout_weight="1"
-            android:id="@+id/fragment_list_button_chart"/>
+            android:id="@+id/fragment_list_button_chart"
+            android:textColor="#4AA8CE"
+            android:background="@drawable/buttonshape"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Map"
             android:layout_weight="1"
-            android:id="@+id/fragment_list_button_map"/>
+            android:id="@+id/fragment_list_button_map"
+            android:textColor="#4AA8CE"
+            android:background="@drawable/buttonshape"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
 </LinearLayout>
