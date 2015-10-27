@@ -59,13 +59,19 @@ public class ChartFragment extends Fragment {
         pieChart.setRotationEnabled(true);
         pieChart.setOnChartValueSelectedListener(new ChartListener());
 
-        addExpensesToChart();
+        addExpensesToChart(controller.getData());
 
         Legend legend = pieChart.getLegend();
         legend.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
         legend.setXEntrySpace(7);
         legend.setYEntrySpace(5);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        addExpensesToChart(controller.getData());
     }
 
     /**
