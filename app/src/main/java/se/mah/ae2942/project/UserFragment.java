@@ -28,7 +28,7 @@ public class UserFragment extends Fragment {
     private Controller controller;
 
     /**
-     * Contstructor
+     * Constructor
      */
     public UserFragment() {}
 

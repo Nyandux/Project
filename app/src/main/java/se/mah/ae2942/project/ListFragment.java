@@ -50,20 +50,20 @@ public class ListFragment extends Fragment {
         btnMap = (Button) view.findViewById(R.id.fragment_list_button_map);
         btnMap.setOnClickListener(new ButtonListener());
         btnChart.setOnClickListener(new ButtonListener());
-        setListViewAdapter(controller.createListAdapter());
+        setListViewAdapter();
     }
 
     @Override
     public void onResume() {
-        setListViewAdapter(controller.createListAdapter());
+        setListViewAdapter();
         super.onResume();
     }
 
     /**
      * Set Listview Adapter
-     * @param expenseAdapter input
      */
-    public void setListViewAdapter(ExpenseAdapter expenseAdapter) {
+    public void setListViewAdapter() {
+        ExpenseAdapter expenseAdapter = new ExpenseAdapter(getActivity(), controller.getData());
         listView.setAdapter(expenseAdapter);
     }
 
