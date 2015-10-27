@@ -20,7 +20,7 @@
             android:layout_height="220dp"
             android:id="@+id/imageView"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/dollar_logo" />
+            android:background="@drawable/dollarpin_ps2" />
 
     </LinearLayout>
 
