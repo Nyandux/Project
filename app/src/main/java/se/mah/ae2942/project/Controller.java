@@ -3,6 +3,7 @@ package se.mah.ae2942.project;
 import android.database.Cursor;
 
 import com.google.android.gms.maps.MapFragment;
+//
 
 /**
  * Controller class.
