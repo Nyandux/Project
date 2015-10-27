@@ -54,7 +54,7 @@ public class ChartFragment extends Fragment {
         pieChart = new PieChart(getActivity());
         layout.addView(pieChart);
         pieChart.setUsePercentValues(true);
-        pieChart.setDescription("Summary Expenses: ");
+        pieChart.setDescription("Summary Expenses: " + controller.getTotalAmount() + " kr");
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColorTransparent(true);
         pieChart.setHoleRadius(25);
@@ -62,7 +62,8 @@ public class ChartFragment extends Fragment {
         pieChart.setRotationEnabled(true);
         pieChart.setOnChartValueSelectedListener(new ChartListener());
 
-        addExpensesToChart(controller.getData());
+       // addExpensesToChart(controller.getData());
+        addExpensesToChart();
 
         Legend legend = pieChart.getLegend();
         legend.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);

@@ -3,6 +3,7 @@ package se.mah.ae2942.project;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.database.Cursor;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.MapFragment;
 //
@@ -42,6 +43,16 @@ public class Controller {
         addFragment.setController(this);
     }
 
+    public double getTotalAmount(){
+        Expense[] expenses = db.getData();
+        double amount = 0;
+        for(Expense e : expenses){
+            amount += e.getAmount();
+        }
+        return amount;
+
+    }
+
     public void setViewListFragment(){
         FragmentManager fm = mainActivity.getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -68,6 +79,7 @@ public class Controller {
         FragmentTransaction ft = fm.beginTransaction();
         ft.addToBackStack(null);
         ft.replace(R.id.activity_main_layout, chartFragment).commit();
+
     }
 
     public void setViewUserFragment(){

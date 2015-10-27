@@ -86,11 +86,7 @@ public class UserFragment extends Fragment {
                 controller.setViewListFragment();
 
 
-                //Listfragment create user
-//                FragmentManager fm = getFragmentManager();
-//                FragmentTransaction ft = fm.beginTransaction();
-//                ListFragment listFragment = new ListFragment();
-//                ft.replace(R.id.activity_main_layout, listFragment).commit();
+
             }
             else{
                 Toast.makeText(view.getContext().getApplicationContext(),
@@ -116,12 +112,7 @@ public class UserFragment extends Fragment {
                         controller.setViewListFragment();
                         //ListFragment
 
-                        FragmentManager fm = getFragmentManager();
-                        FragmentTransaction ft = fm.beginTransaction();
-                        listFragment = new ListFragment();
 
-
-                        ft.replace(R.id.activity_main_layout, listFragment).commit();
                     }
                     else{
                         Toast.makeText(view.getContext().getApplicationContext(),
