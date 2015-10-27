@@ -62,7 +62,7 @@ public class ChartFragment extends Fragment {
         pieChart.setRotationEnabled(true);
         pieChart.setOnChartValueSelectedListener(new ChartListener());
 
-        addExpensesToChart();
+        addExpensesToChart(controller.getData());
 
         Legend legend = pieChart.getLegend();
         legend.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
@@ -88,8 +88,10 @@ public class ChartFragment extends Fragment {
         ArrayList<String> xList = new ArrayList<String>();
         expenses = expense;
 
+
         for(int i = 0; i < expense.length; i++){
-            yList.add(new Entry(Integer.valueOf(String.valueOf(expense[i].getAmount())) , i));
+            int nbr = (int)expense[i].getAmount();
+            yList.add(new Entry(nbr , i));
             xList.add(expense[i].getCategory());
         }
 
