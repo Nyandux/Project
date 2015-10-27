@@ -91,6 +91,7 @@ public class ListFragment extends Fragment {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ChartFragment chartFragment = new ChartFragment();
+                chartFragment.setController(controller);
                 ft.addToBackStack(null);
                 ft.replace(R.id.activity_main_layout, chartFragment).commit();
             }

@@ -32,6 +32,7 @@ public class ChartFragment extends Fragment {
     private PieChart pieChart;
     private String[] xData = {"Entertainment", "Home", "Travel", "Food", "Other"};
     private float[] yData = {200, 242, 234, 235, 111};
+    private Expense[] expenses;
 
     /**
      * Constructor
@@ -92,6 +93,7 @@ public class ChartFragment extends Fragment {
 
         ArrayList<Entry> yList = new ArrayList<Entry>();
         ArrayList<String> xList = new ArrayList<String>();
+        expenses = expense;
 
         for(int i = 0; i < expense.length; i++){
             yList.add(new Entry(Integer.valueOf(String.valueOf(expense[i].getAmount())) , i));
@@ -164,7 +166,7 @@ public class ChartFragment extends Fragment {
     private class ChartListener implements com.github.mikephil.charting.listener.OnChartValueSelectedListener{
 
         public void onValueSelected(Entry entry, int position, Highlight timeHighlighted) {
-            Toast.makeText(getActivity(), entry.getData().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), expenses[position].getTitle(), Toast.LENGTH_SHORT).show();
         }
 
         public void onNothingSelected() {

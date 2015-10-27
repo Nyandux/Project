@@ -31,14 +31,17 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MainActivity",
                 Activity.MODE_PRIVATE);
 
+        Controller controller = new Controller(this);
+
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
             if (sharedPreferences.contains("username")) {
-                    FragmentManager fm = getFragmentManager();
-                    FragmentTransaction ft = fm.beginTransaction();
-                    ListFragment listFragment = new ListFragment();
-                    ft.addToBackStack(null);
-                    ft.replace(R.id.activity_main_layout, listFragment).commit();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ListFragment listFragment = new ListFragment();
+                listFragment.setController(controller);
+                ft.addToBackStack(null);
+                ft.replace(R.id.activity_main_layout, listFragment).commit();
             } else {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
