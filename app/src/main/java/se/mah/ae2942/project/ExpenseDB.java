@@ -58,6 +58,7 @@ public class ExpenseDB extends SQLiteOpenHelper {
     }
 
 
+
     /**
      * Inserts data to database
      * @param expense - expense to add to database
@@ -70,9 +71,9 @@ public class ExpenseDB extends SQLiteOpenHelper {
         contentValues.put(COLUMN_CATEGORY, expense.getCategory());
         contentValues.put(COLUMN_AMOUNT, expense.getAmount());
         contentValues.put(COLUMN_DATE, expense.getDate());
-        contentValues.put(COLUMN_LONGITUD, expense.getLongitude());
-        contentValues.put(COLUMN_LATITUDE, expense.getLatitude());
-
+        contentValues.put(COLUMN_LONGITUD, expense.getLatitude());
+        contentValues.put(COLUMN_LATITUDE, expense.getLongitude());
+        //put values for coordinate
         long res = DB.insert(TABLE_NAME, null, contentValues);
 
         if (res == -1) {
