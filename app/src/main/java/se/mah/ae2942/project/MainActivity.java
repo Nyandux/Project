@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_empty_database) {
             controller.dropDatabase();
-
+            Toast.makeText(this, "Table dropped", Toast.LENGTH_LONG).show();
         }
 
         if(id == R.id.action_add_to_list){
