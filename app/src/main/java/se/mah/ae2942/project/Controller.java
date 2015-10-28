@@ -25,7 +25,6 @@ public class Controller {
     /**
      * Constructor
      */
-
     public Controller(MainActivity mainActivity, ListFragment listFragment, UserFragment userFragment,
                       ChartFragment chartFragment, GMapsFragment gMapsFragment, AddFragment addFragment) {
 
@@ -44,6 +43,10 @@ public class Controller {
         addFragment.setController(this);
     }
 
+    /**
+     * Returns total amount for all expenses
+     * @return - amount to return
+     */
     public double getTotalAmount(){
         Expense[] expenses = db.getData();
         double amount = 0;
@@ -77,7 +80,6 @@ public class Controller {
 
     }
 
-
     public void setView(Fragment fragment){
         if(fragment != null) {
             FragmentManager fm = mainActivity.getFragmentManager();
@@ -87,7 +89,6 @@ public class Controller {
         }
     }
 
-    //add code
     public void setData(Expense expense){
         db.insertData(expense);
     }
