@@ -32,6 +32,7 @@ public class UserFragment extends Fragment {
      */
     public UserFragment() {}
 
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user, container, false);
@@ -83,6 +84,7 @@ public class UserFragment extends Fragment {
                 sharedPreferences.edit().putString(getUsername(), getPassword()).commit();
                 sharedPreferences.edit().putString("username", getUsername());
 
+
                 controller.setViewListFragment();
 
 
@@ -108,6 +110,7 @@ public class UserFragment extends Fragment {
                 else{
                     if(password.equals(getPassword())){
                         sharedPreferences.edit().putString("username", getUsername());
+
 
                         controller.setViewListFragment();
                         //ListFragment

@@ -1,5 +1,6 @@
 package se.mah.ae2942.project;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.database.Cursor;
@@ -33,7 +34,7 @@ public class Controller {
         this.listFragment = listFragment;
         this.userFragment = userFragment;
         this.chartFragment = chartFragment;
-        this.gMapFragment = gMapFragment;
+        this.gMapFragment = gMapsFragment;
         this.addFragment = addFragment;
 
         listFragment.setController(this);
@@ -60,12 +61,6 @@ public class Controller {
         ft.replace(R.id.activity_main_layout, listFragment).commit();
     }
 
-    public void setViewAddFragment(){
-        FragmentManager fm = mainActivity.getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout, addFragment).commit();
-    }
 
     public void setViewGmapsFragment(){
         FragmentManager fm = mainActivity.getFragmentManager();
@@ -82,11 +77,14 @@ public class Controller {
 
     }
 
-    public void setViewUserFragment(){
-        FragmentManager fm = mainActivity.getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.addToBackStack(null);
-        ft.replace(R.id.activity_main_layout, userFragment).commit();
+
+    public void setView(Fragment fragment){
+        if(fragment != null) {
+            FragmentManager fm = mainActivity.getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.addToBackStack(null);
+            ft.replace(R.id.activity_main_layout, fragment).commit();
+        }
     }
 
     //add code
@@ -96,10 +94,6 @@ public class Controller {
 
     public Expense[] getData(){
         return db.getData();
-    }
-
-    public ExpenseAdapter createListAdapter(){
-        return new ExpenseAdapter(mainActivity, db.getData());
     }
 
     public void dropDatabase(){

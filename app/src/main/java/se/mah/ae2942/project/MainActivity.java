@@ -48,9 +48,11 @@ public class MainActivity extends AppCompatActivity {
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
             if (sharedPreferences.contains("username")) {
-                controller.setViewListFragment();
+                //controller.setViewListFragment();
+                controller.setView(listFragment);
             } else {
-                controller.setViewUserFragment();
+                //controller.setViewUserFragment();
+                controller.setView(userFragment);
             }
         }
     }
@@ -60,13 +62,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void onDestroy(){
+        super.onDestroy();
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
 
 
         if (id == R.id.action_log_out) {
-            controller.setViewUserFragment();
+            //controller.setViewUserFragment();
+            controller.setView(userFragment);
         }
 
         if (id == R.id.action_empty_database) {
@@ -75,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(id == R.id.action_add_to_list){
-            controller.setViewAddFragment();
+            //controller.setViewAddFragment();
+            controller.setView(addFragment);
         }
 
         return super.onOptionsItemSelected(item);

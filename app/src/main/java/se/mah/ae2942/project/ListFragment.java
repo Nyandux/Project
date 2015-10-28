@@ -85,6 +85,7 @@ public class ListFragment extends Fragment {
 
 
             if (btnMap.isPressed()) {
+                //controller.setViewGmapsFragment();
                 controller.setViewGmapsFragment();
             }
 
