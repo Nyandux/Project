@@ -24,28 +24,27 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
     private LocationManager locationManager;
     private Expense[] expenses;
     private Controller controller;
+    private MainActivity mainActivity;
     
 
 
     public GMapsFragment() {}
 
-    /**
-     * Sets local controller.
-     * @param controller controller
-     */
-    public void setController(Controller controller){
-        this.controller = controller;
-    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getMapAsync(this);
         return super.onCreateView(inflater, container, savedInstanceState);
+
+
     }
 
     public void onMapReady(GoogleMap googleMap) {
+        mainActivity = (MainActivity)getActivity();
+        controller = mainActivity.getController();
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
         setAllPosition();
+
 //        setMyposition();
 
 

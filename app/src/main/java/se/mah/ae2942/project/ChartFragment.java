@@ -50,6 +50,8 @@ public class ChartFragment extends Fragment {
      * Initiate variables
      */
     public void initiate() {
+        MainActivity main = (MainActivity)getActivity();
+        controller = main.getController();
         layout = (FrameLayout)view.findViewById(R.id.fragment_chart_layout);
         pieChart = new PieChart(getActivity());
         layout.addView(pieChart);
@@ -62,6 +64,7 @@ public class ChartFragment extends Fragment {
         pieChart.setRotationEnabled(true);
         pieChart.setOnChartValueSelectedListener(new ChartListener());
 
+
         addExpensesToChart(controller.getData());
        // addExpensesToChart();
 
@@ -70,14 +73,6 @@ public class ChartFragment extends Fragment {
         legend.setXEntrySpace(7);
         legend.setYEntrySpace(5);
 
-    }
-
-    /**
-     * Sets local controller.
-     * @param controller input
-     */
-    public void setController(Controller controller){
-        this.controller = controller;
     }
 
     /**
@@ -93,8 +88,6 @@ public class ChartFragment extends Fragment {
         for(int i = 0; i < expense.length; i++){
             int amount = (int)expense[i].getAmount();
             yList.add(new Entry(amount , i));
-
-           // yList.add(new Entry(Integer.valueOf(String.valueOf(expense[i].getAmount())) , i));
             xList.add(expense[i].getCategory());
         }
 

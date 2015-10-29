@@ -69,14 +69,6 @@ public class ListFragment extends Fragment {
         listView.setAdapter(expenseAdapter);
     }
 
-    /**
-     * Sets local Controller.
-     *
-     * @param controller input
-     */
-    public void setController(Controller controller) {
-        this.controller = controller;
-    }
 
     /**
      * ButtonListener

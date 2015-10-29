@@ -68,15 +68,9 @@ public class AddFragment extends Fragment {
         btnFinish.setOnClickListener(new ButtonFinishOnClick());
         cal = Calendar.getInstance();
         main = (MainActivity)getActivity();
+        controller = main.getController();
     }
 
-    /**
-     * Sets local controller.
-     * @param controller input
-     */
-    public void setController(Controller controller){
-        this.controller = controller;
-    }
 
     /**
      * Returns the title input from EditText.

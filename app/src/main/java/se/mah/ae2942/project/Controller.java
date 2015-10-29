@@ -1,13 +1,6 @@
 package se.mah.ae2942.project;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.database.Cursor;
-import android.widget.Toast;
 
-import com.google.android.gms.maps.MapFragment;
-//
 
 /**
  * Controller class.

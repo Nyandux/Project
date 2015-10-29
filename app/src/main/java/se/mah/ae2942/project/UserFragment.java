@@ -65,9 +65,6 @@ public class UserFragment extends Fragment {
         return etUsername.getText().toString();
     }
 
-    public void setController(Controller controller){
-        this.controller = controller;
-    }
 
     /**
      * Returns the password input from EditText.

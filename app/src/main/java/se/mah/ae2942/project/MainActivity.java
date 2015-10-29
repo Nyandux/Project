@@ -39,18 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new Controller(this);
         listFragment = new ListFragment();
-        listFragment.setController(controller);
-//        listFragment.setRetainInstance(true);
         userFragment = new UserFragment();
-        userFragment.setController(controller);
         addFragment = new AddFragment();
-        addFragment.setController(controller);
         gMapsFragment = new GMapsFragment();
-        gMapsFragment.setController(controller);
-//        gMapsFragment.setRetainInstance(true);
         chartFragment = new ChartFragment();
-        chartFragment.setController(controller);
-//        chartFragment.setRetainInstance(true);
 
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {

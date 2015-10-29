@@ -58,7 +58,6 @@ public class ExpenseDB extends SQLiteOpenHelper {
     }
 
 
-
     /**
      * Inserts data to database
      * @param expense - expense to add to database
@@ -83,6 +82,11 @@ public class ExpenseDB extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * Returns an array of all expenses if database contains any data,
+     * else returns null
+     * @return - array of expenses to return
+     */
     public Expense[] getData(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor result = db.rawQuery("select * from " + TABLE_NAME, null);
@@ -101,7 +105,10 @@ public class ExpenseDB extends SQLiteOpenHelper {
         result.close();
         return expense;
     }
-    
+
+    /**
+     * Deletes database
+     */
     public void dropTable(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(this.TABLE_NAME, null, null);
