@@ -3,6 +3,8 @@ package se.mah.ae2942.project;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.location.Criteria;
@@ -35,6 +37,7 @@ public class AddFragment extends Fragment {
     private Location location;
     private LocationManager locationManager;
     private double latitude,longtitude;
+    private MainActivity main;
 
     /**
      * Contstructor.
@@ -63,6 +66,7 @@ public class AddFragment extends Fragment {
         btnDate.setOnClickListener(new ButtonDateOnClick());
         btnFinish.setOnClickListener(new ButtonFinishOnClick());
         cal = Calendar.getInstance();
+        main = (MainActivity)getActivity();
     }
 
     /**
@@ -175,9 +179,8 @@ public class AddFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(),getLatitude());
-                controller.setData(expense);
-                controller.setViewListFragment();
-
+            controller.setData(expense);
+            main.setViewFragment("listfragment");
         }
     }
 }

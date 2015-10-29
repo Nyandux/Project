@@ -16,11 +16,12 @@ import com.google.android.gms.maps.GoogleMap;
  * MainActivity class..
  */
 public class MainActivity extends AppCompatActivity {
-    Controller controller;
+
+    private Controller controller;
+    private ListFragment listFragment;
     private UserFragment userFragment;
     private GMapsFragment gMapsFragment;
     private ChartFragment chartFragment;
-    private ListFragment listFragment;
     private AddFragment addFragment;
 
     private SharedPreferences sharedPreferences;
@@ -36,24 +37,45 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MainActivity",
                 Activity.MODE_PRIVATE);
 
+        listFragment = new ListFragment();
         userFragment = new UserFragment();
+        addFragment = new AddFragment();
         gMapsFragment = new GMapsFragment();
         chartFragment = new ChartFragment();
-        listFragment = new ListFragment();
-        addFragment = new AddFragment();
-
-
-        controller = new Controller(this,listFragment,userFragment,chartFragment,gMapsFragment, addFragment);
+        controller = new Controller(this);
 
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
             if (sharedPreferences.contains("username")) {
-                //controller.setViewListFragment();
-                controller.setView(listFragment);
+                setViewFragment("listfragment");
             } else {
-                //controller.setViewUserFragment();
-                controller.setView(userFragment);
+                setViewFragment("userfragment");
             }
+        }
+    }
+
+    public void setViewFragment(String str){
+
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.addToBackStack(null);
+
+        switch (str){
+            case "listfragment" :
+                ft.replace(R.id.activity_main_layout, listFragment);
+                break;
+            case "userfragment" :
+                ft.replace(R.id.activity_main_layout, userFragment);
+                break;
+            case "gmapsfragment" :
+                ft.replace(R.id.activity_main_layout, gMapsFragment);
+                break;
+            case "chartfragment" :
+                ft.replace(R.id.activity_main_layout, chartFragment);
+                break;
+            case "addfragment" :
+                ft.replace(R.id.activity_main_layout, addFragment);
+                break;
         }
     }
 
@@ -69,11 +91,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-
-
         if (id == R.id.action_log_out) {
-            //controller.setViewUserFragment();
-            controller.setView(userFragment);
+            setViewFragment("userfragment");
         }
 
         if (id == R.id.action_empty_database) {
@@ -82,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(id == R.id.action_add_to_list){
-            //controller.setViewAddFragment();
-            controller.setView(addFragment);
+            setViewFragment("addfragment");
         }
 
         return super.onOptionsItemSelected(item);
