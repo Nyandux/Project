@@ -25,17 +25,15 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
     private Expense[] expenses;
     private Controller controller;
     private MainActivity mainActivity;
-    
+
 
 
     public GMapsFragment() {}
 
-
+  
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getMapAsync(this);
         return super.onCreateView(inflater, container, savedInstanceState);
-
-
     }
 
     public void onMapReady(GoogleMap googleMap) {
@@ -44,7 +42,6 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
         setAllPosition();
-
 //        setMyposition();
 
 
@@ -80,7 +77,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
             mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
         }
     }
-//
+
 //    public void setMyposition(){
 //        double latitude,longtitude;
 //
