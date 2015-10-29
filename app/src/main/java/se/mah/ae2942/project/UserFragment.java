@@ -26,7 +26,7 @@ public class UserFragment extends Fragment {
     private Button btnLogIn, btnCreateUser;
     private SharedPreferences sharedPreferences;
     private Controller controller;
-    private MainActivity main;
+    private MainActivity mainActivity;
 
     /**
      * Constructor
@@ -51,7 +51,7 @@ public class UserFragment extends Fragment {
         btnCreateUser = (Button)view.findViewById(R.id.fragment_user_button_create_user);
         btnLogIn.setOnClickListener(new ButtonLogInOnClick());
         btnCreateUser.setOnClickListener(new ButtonCreateUserOnClick());
-        main = (MainActivity)getActivity();
+        mainActivity = (MainActivity)getActivity();
         sharedPreferences = getActivity().getSharedPreferences("MainActivity",
                 Activity.MODE_PRIVATE);
     }
@@ -81,7 +81,7 @@ public class UserFragment extends Fragment {
             if((getUsername() != null) && getPassword() != null){
                 sharedPreferences.edit().putString(getUsername(), getPassword()).commit();
                 sharedPreferences.edit().putString("username", getUsername());
-                main.setViewFragment("listfragment");
+                mainActivity.setViewFragment("listfragment");
             }
             else{
                 Toast.makeText(view.getContext().getApplicationContext(),
@@ -103,7 +103,7 @@ public class UserFragment extends Fragment {
                 else{
                     if(password.equals(getPassword())){
                         sharedPreferences.edit().putString("username", getUsername());
-                        main.setViewFragment("listfragment");
+                        mainActivity.setViewFragment("listfragment");
                     }
                     else{
                         Toast.makeText(view.getContext().getApplicationContext(),

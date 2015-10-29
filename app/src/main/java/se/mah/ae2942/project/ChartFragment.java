@@ -19,6 +19,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.jar.Manifest;
 
 /**
  * Google Chart fragment, summarizes the expenses in a donut diagram..
@@ -33,6 +34,7 @@ public class ChartFragment extends Fragment {
     private String[] xData = {"Entertainment", "Home", "Travel", "Food", "Other"};
     private float[] yData = {200, 242, 234, 235, 111};
     private Expense[] expenses;
+    private MainActivity mainActivity;
 
     /**
      * Constructor
@@ -50,8 +52,8 @@ public class ChartFragment extends Fragment {
      * Initiate variables
      */
     public void initiate() {
-        MainActivity main = (MainActivity)getActivity();
-        controller = main.getController();
+        mainActivity = (MainActivity)getActivity();
+        controller = mainActivity.getController();
         layout = (FrameLayout)view.findViewById(R.id.fragment_chart_layout);
         pieChart = new PieChart(getActivity());
         layout.addView(pieChart);

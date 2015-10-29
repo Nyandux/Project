@@ -26,7 +26,7 @@ public class ListFragment extends Fragment {
     private ListView listView;
     private Button btnChart, btnMap;
     private Controller controller;
-    private MainActivity main;
+    private MainActivity mainActivity;
 
     /**
      * Constructor
@@ -51,8 +51,8 @@ public class ListFragment extends Fragment {
         btnMap = (Button) view.findViewById(R.id.fragment_list_button_map);
         btnMap.setOnClickListener(new ButtonListener());
         btnChart.setOnClickListener(new ButtonListener());
-        main = (MainActivity)getActivity();
-        controller = main.getController();
+        mainActivity = (MainActivity)getActivity();
+        controller = mainActivity.getController();
     }
 
     @Override
@@ -79,11 +79,11 @@ public class ListFragment extends Fragment {
 
 
             if (btnMap.isPressed()) {
-                main.setViewFragment("gmapsfragment");
+                mainActivity.setViewFragment("gmapsfragment");
             }
 
             if(btnChart.isPressed()){
-                main.setViewFragment("chartfragment");
+                mainActivity.setViewFragment("chartfragment");
             }
         }
     }
