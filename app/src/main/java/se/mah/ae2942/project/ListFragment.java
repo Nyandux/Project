@@ -52,7 +52,7 @@ public class ListFragment extends Fragment {
         btnMap.setOnClickListener(new ButtonListener());
         btnChart.setOnClickListener(new ButtonListener());
         main = (MainActivity)getActivity();
-
+        controller = main.getController();
     }
 
     @Override

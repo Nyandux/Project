@@ -37,12 +37,20 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MainActivity",
                 Activity.MODE_PRIVATE);
 
-        listFragment = new ListFragment();
-        userFragment = new UserFragment();
-        addFragment = new AddFragment();
-        gMapsFragment = new GMapsFragment();
-        chartFragment = new ChartFragment();
         controller = new Controller(this);
+        listFragment = new ListFragment();
+        listFragment.setController(controller);
+//        listFragment.setRetainInstance(true);
+        userFragment = new UserFragment();
+        userFragment.setController(controller);
+        addFragment = new AddFragment();
+        addFragment.setController(controller);
+        gMapsFragment = new GMapsFragment();
+        gMapsFragment.setController(controller);
+//        gMapsFragment.setRetainInstance(true);
+        chartFragment = new ChartFragment();
+        chartFragment.setController(controller);
+//        chartFragment.setRetainInstance(true);
 
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
@@ -62,21 +70,25 @@ public class MainActivity extends AppCompatActivity {
 
         switch (str){
             case "listfragment" :
-                ft.replace(R.id.activity_main_layout, listFragment);
+                ft.replace(R.id.activity_main_layout, listFragment).commit();
                 break;
             case "userfragment" :
-                ft.replace(R.id.activity_main_layout, userFragment);
+                ft.replace(R.id.activity_main_layout, userFragment).commit();
                 break;
             case "gmapsfragment" :
-                ft.replace(R.id.activity_main_layout, gMapsFragment);
+                ft.replace(R.id.activity_main_layout, gMapsFragment).commit();
                 break;
             case "chartfragment" :
-                ft.replace(R.id.activity_main_layout, chartFragment);
+                ft.replace(R.id.activity_main_layout, chartFragment).commit();
                 break;
             case "addfragment" :
-                ft.replace(R.id.activity_main_layout, addFragment);
+                ft.replace(R.id.activity_main_layout, addFragment).commit();
                 break;
         }
+    }
+
+    public Controller getController() {
+        return controller;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

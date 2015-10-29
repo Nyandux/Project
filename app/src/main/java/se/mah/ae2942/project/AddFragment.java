@@ -11,6 +11,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -180,6 +181,7 @@ public class AddFragment extends Fragment {
         public void onClick(View v) {
             Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(),getLatitude());
             controller.setData(expense);
+            Log.d("position innan db",""+getLatitude()+" "+getLongtitude());
             main.setViewFragment("listfragment");
         }
     }
