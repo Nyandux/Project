@@ -3,6 +3,8 @@ package se.mah.ae2942.project;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.location.Criteria;
@@ -33,10 +35,8 @@ public class AddFragment extends Fragment {
     private String date, categorySelected;
     private String[] categories = {"Entertainment", "Home", "Travel", "Food", "Other"};
     private Calendar cal;
-    private Location location;
+    private MainActivity main;
     private LocationManager locationManager;
-    private double latitude,longtitude;
-    private MainActivity mainActivity;
 
     /**
      * Contstructor.
@@ -65,8 +65,8 @@ public class AddFragment extends Fragment {
         btnDate.setOnClickListener(new ButtonDateOnClick());
         btnFinish.setOnClickListener(new ButtonFinishOnClick());
         cal = Calendar.getInstance();
-        mainActivity = (MainActivity)getActivity();
-        controller = mainActivity.getController();
+        main = (MainActivity)getActivity();
+        controller = main.getController();
     }
 
 
@@ -96,22 +96,24 @@ public class AddFragment extends Fragment {
 
     public double getLatitude(){
         locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+//        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
+//        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
-        location = locationManager.getLastKnownLocation(provider);
-        latitude = location.getLatitude();
+        Location location = locationManager.getLastKnownLocation(provider);
 
-        return latitude;
+
+        return location.getLatitude();
     }
 
     public double getLongtitude(){
         locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+//        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
+//        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
-        location = locationManager.getLastKnownLocation(provider);
-        longtitude = location.getLongitude();
-
-        return longtitude;
+        Location location = locationManager.getLastKnownLocation(provider);
+        return location.getLongitude();
     }
 
 
@@ -173,8 +175,7 @@ public class AddFragment extends Fragment {
         public void onClick(View v) {
             Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(),getLatitude());
             controller.setData(expense);
-            Log.d("position innan db", "" + getLatitude() + " " + getLongtitude());
-            mainActivity.setViewFragment("listfragment");
+            main.setViewFragment("listfragment");
         }
     }
 }

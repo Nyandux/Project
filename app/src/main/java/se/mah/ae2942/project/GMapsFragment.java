@@ -30,7 +30,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 
     public GMapsFragment() {}
 
-  
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getMapAsync(this);
         return super.onCreateView(inflater, container, savedInstanceState);
@@ -42,7 +42,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
         setAllPosition();
-//        setMyposition();
+       // setMyposition();
 
 
 //        LatLng myPosition = new LatLng(latitude, longtitude);
@@ -68,8 +68,6 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
 
             Log.d("position efter db",""+latitude+" "+longtitude);
 
-            locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-
             LatLng myPosition = new LatLng(latitude,longtitude);
             mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
             mMap.addMarker(new MarkerOptions().position(myPosition).title(expenses[i].getTitle()))
@@ -78,21 +76,21 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
         }
     }
 
-//    public void setMyposition(){
-//        double latitude,longtitude;
-//
-//        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-//        Criteria criteria = new Criteria();
-//        String provider = locationManager.getBestProvider(criteria, true);
-//        Location location = locationManager.getLastKnownLocation(provider);
-//
-//        latitude = location.getLatitude();
-//        longtitude = location.getLongitude();
-//
-//        LatLng myPosition = new LatLng(latitude,longtitude);
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-//        mMap.addMarker(new MarkerOptions().position(myPosition).title("You are here"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
-//    }
+    public void setMyposition(){
+        double latitude,longtitude;
+
+        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        String provider = locationManager.getBestProvider(criteria, true);
+        Location location = locationManager.getLastKnownLocation(provider);
+
+        latitude = location.getLatitude();
+        longtitude = location.getLongitude();
+
+        LatLng myPosition = new LatLng(latitude,longtitude);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
+        mMap.addMarker(new MarkerOptions().position(myPosition).title("You are here"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition));
+    }
 
 }
