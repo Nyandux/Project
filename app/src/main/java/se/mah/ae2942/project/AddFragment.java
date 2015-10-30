@@ -94,27 +94,7 @@ public class AddFragment extends Fragment {
         return date.toString();
     }
 
-    public double getLatitude(){
-        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-//        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
-//        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
-        Location location = locationManager.getLastKnownLocation(provider);
 
-
-        return location.getLatitude();
-    }
-
-    public double getLongtitude(){
-        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-//        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
-//        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
-        Location location = locationManager.getLastKnownLocation(provider);
-        return location.getLongitude();
-    }
 
 
     /**
@@ -173,7 +153,7 @@ public class AddFragment extends Fragment {
     private class ButtonFinishOnClick implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(),getLatitude());
+            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),12.0,13.0);
             controller.setData(expense);
             main.setViewFragment("listfragment");
         }
