@@ -67,6 +67,7 @@ public class AddFragment extends Fragment {
         cal = Calendar.getInstance();
         main = (MainActivity)getActivity();
         controller = main.getController();
+
     }
 
 
@@ -107,9 +108,9 @@ public class AddFragment extends Fragment {
     }
 
     public double getLongtitude(){
-        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+//        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
 //        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
-//        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
+      //  locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
         Location location = locationManager.getLastKnownLocation(provider);
@@ -173,7 +174,8 @@ public class AddFragment extends Fragment {
     private class ButtonFinishOnClick implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(),getLatitude());
+            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLongtitude(), getLatitude());
+            Log.d("MYPOSITION","" + " " + getLongtitude());
             controller.setData(expense);
             main.setViewFragment("listfragment");
         }

@@ -61,7 +61,6 @@ public class UserFragment extends Fragment {
      * @return String username.
      */
     private String getUsername(){
-
         return etUsername.getText().toString();
     }
 

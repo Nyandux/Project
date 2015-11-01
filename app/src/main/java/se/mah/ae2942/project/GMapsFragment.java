@@ -66,6 +66,7 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
             longtitude = expenses[i].getLongitude();
             latitude = expenses[i].getLatitude();
 
+
             Log.d("position efter db",""+latitude+" "+longtitude);
 
             LatLng myPosition = new LatLng(latitude,longtitude);
