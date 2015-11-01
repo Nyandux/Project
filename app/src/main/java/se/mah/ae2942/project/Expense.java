@@ -10,8 +10,8 @@ public class Expense {
     private String category;
     private double amount;
     private String date;
-    private double longitude;
     private double latitude;
+    private double longitude;
 
     /**
      * Constructor, initiates the local variables to parameter values.
@@ -24,13 +24,14 @@ public class Expense {
      */
 
     //add double longitude, double latitude
-    public Expense(String title, String category, double amount, String date, double longitude, double latitude) {
+    public Expense(String title, String category, double amount, String date, double latitude, double longitude) {
         this.category = category;
         this.title = title;
         this.amount = amount;
         this.date = date;
-        this.longitude = longitude;
         this.latitude = latitude;
+        this.longitude = longitude;
+
     }
 
     /**

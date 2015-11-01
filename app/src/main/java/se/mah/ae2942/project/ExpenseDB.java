@@ -100,8 +100,8 @@ public class ExpenseDB extends SQLiteOpenHelper {
                     result.getString(result.getColumnIndex(COLUMN_CATEGORY)),
                     Double.parseDouble(result.getString(result.getColumnIndex(COLUMN_AMOUNT))),
                     result.getString(result.getColumnIndex(COLUMN_DATE)),
-                    Double.parseDouble(result.getString(result.getColumnIndex(COLUMN_LONGITUD))),
-                    Double.parseDouble(result.getString(result.getColumnIndex(COLUMN_LATITUDE))));
+                    Double.parseDouble(result.getString(result.getColumnIndex(COLUMN_LATITUDE))),
+                    Double.parseDouble(result.getString(result.getColumnIndex(COLUMN_LONGITUD))));
         }
         result.close();
         return expense;
