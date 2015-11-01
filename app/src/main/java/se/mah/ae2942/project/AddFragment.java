@@ -97,18 +97,16 @@ public class AddFragment extends Fragment {
 
     public double getLatitude(){
         locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-//        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
-//        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
+     //   MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
+     //   locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
         Location location = locationManager.getLastKnownLocation(provider);
-
-
         return location.getLatitude();
     }
 
     public double getLongtitude(){
-//        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+            locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
 //        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
       //  locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
         Criteria criteria = new Criteria();
