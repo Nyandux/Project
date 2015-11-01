@@ -82,6 +82,7 @@ public class ExpenseDB extends SQLiteOpenHelper {
         }
     }
 
+
     /**
      * Returns an array of all expenses if database contains any data,
      * else returns null
