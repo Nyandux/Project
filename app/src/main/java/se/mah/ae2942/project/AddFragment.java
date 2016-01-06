@@ -3,12 +3,10 @@ package se.mah.ae2942.project;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,9 +34,12 @@ public class AddFragment extends Fragment {
     private String[] categories = {"Entertainment", "Home", "Travel", "Food", "Other"};
     private Calendar cal;
     private MainActivity main;
+    private double lng, lat;
     private LocationManager locationManager;
+    private boolean isGPSEnabled, isNetworkEnabled;
+    private MyLocationListener mll;
 
-    /**
+    /*;
      * Contstructor.
      */
     public AddFragment() {}
@@ -46,7 +47,6 @@ public class AddFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add, container, false);
-
         initiate();
 
         return view;
@@ -67,9 +67,13 @@ public class AddFragment extends Fragment {
         cal = Calendar.getInstance();
         main = (MainActivity)getActivity();
         controller = main.getController();
-
+        locationManager = (LocationManager) main.getSystemService(Context.LOCATION_SERVICE);
+        // getting GPS status
+        isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        // getting network status
+        isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        mll = new MyLocationListener();
     }
-
 
     /**
      * Returns the title input from EditText.
@@ -83,38 +87,25 @@ public class AddFragment extends Fragment {
      * Returns the amount input from EditText.
      * @return String amount.
      */
-    public double getAmount(){
+    public double getAmount() {
         return Double.parseDouble(etAmount.getText().toString());
     }
 
     public String getCategory(){
-        return categorySelected.toString();
+        return categorySelected;
     }
 
     public String getDate(){
-        return date.toString();
+        return date;
+    }
+
+    public double getLongitude(){
+        return lng;
     }
 
     public double getLatitude(){
-        locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-     //   MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
-     //   locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
-        Location location = locationManager.getLastKnownLocation(provider);
-        return location.getLatitude();
+        return lat;
     }
-
-    public double getLongtitude(){
-            locationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-//        MyCurrentLocation myCurrentLocation = new MyCurrentLocation();
-      //  locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,1000,0,myCurrentLocation);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
-        Location location = locationManager.getLastKnownLocation(provider);
-        return location.getLongitude();
-    }
-
 
     /**
      * The category button, creates a RadioButton AlertDialog.
@@ -170,12 +161,78 @@ public class AddFragment extends Fragment {
             };
 
     private class ButtonFinishOnClick implements View.OnClickListener {
-        @Override
+
         public void onClick(View v) {
-            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(),getLatitude(), getLongtitude());
-            Log.d("MYPOSITION","" + " " + getLongtitude());
+            getLocation();
+            Expense expense = new Expense(getTitle(),getCategory(),getAmount(),getDate(), getLatitude(), getLongitude());
             controller.setData(expense);
             main.setViewFragment("listfragment");
+        }
+    }
+
+    public void getLocation(){
+        if (!isGPSEnabled && !isNetworkEnabled) {
+            // no GPS Provider and no network provider is enabled
+        }
+        else
+        {   // Either GPS provider or network provider is enabled
+
+            // First get location from Network Provider
+            if (isNetworkEnabled)
+            {
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10000, 0, mll);
+                if (locationManager != null)
+                {
+                    Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                    if (location != null)
+                    {
+                        lat = location.getLatitude();
+                        lng = location.getLongitude();
+                    }
+                }
+            }// End of IF network enabled
+
+            // if GPS Enabled get lat/long using GPS Services
+            if (isGPSEnabled)
+            {
+                locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 10000,
+                        0, mll);
+                if (locationManager != null)
+                {
+                    Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                    if (location != null)
+                    {
+                        lat = location.getLatitude();
+                        lng = location.getLongitude();
+                    }
+                }
+
+            }// End of if GPS Enabled
+        }// End of Either GPS provider or network provider is enabled
+    }
+
+    private class MyLocationListener implements LocationListener{
+
+        @Override
+        public void onLocationChanged(Location location) {
+            lat = location.getLatitude();
+            lng = location.getLongitude();
+            Log.d("hej", "" + lat + lng);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
         }
     }
 }

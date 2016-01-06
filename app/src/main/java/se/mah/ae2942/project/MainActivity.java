@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         gMapsFragment = new GMapsFragment();
         chartFragment = new ChartFragment();
 
+
         //If there is a username from previously, go to ListFragment, else prompt new username.
         if (savedInstanceState == null) {
             if (sharedPreferences.contains("username")) {

@@ -2,8 +2,6 @@ package se.mah.ae2942.project;
 
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -13,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 
 /**
  * User fragment, for creating a new user or log in to a existing one.
