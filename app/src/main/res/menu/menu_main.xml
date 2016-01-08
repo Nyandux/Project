@@ -13,14 +13,14 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
-    <item android:id="@+id/action_add_to_list"
-        android:title="@string/action_add_text"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/add"/>
-
     <item android:id="@+id/action_currency_converter"
         android:title="@string/action_currency_converter"
         app:showAsAction="ifRoom"
         android:icon="@drawable/calculator"/>
+
+    <item android:id="@+id/action_add_to_list"
+        android:title="@string/action_add_text"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/add"/>
 
 </menu>

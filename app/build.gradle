@@ -6,10 +6,12 @@ android {
 
     defaultConfig {
         applicationId "se.mah.ae2942.project"
-        minSdkVersion 16
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 21
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
+        sourceCompatibility = 1.7
     }
     buildTypes {
         release {
@@ -20,14 +22,15 @@ android {
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 }
 
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile files('libs/mpandroidchartlibrary-2-1-5.jar')
-    compile 'com.google.android.gms:play-services:8.1.0'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.google.android.gms:play-services-maps:8.4.0'
 }
