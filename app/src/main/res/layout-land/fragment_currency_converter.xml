@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_cc_button_get"
-            android:text="Fetch"
+            android:text="Convert"
             android:textAlignment="center"
             android:textSize="18dp"
             android:textColor="@color/colorPrimaryDark"
