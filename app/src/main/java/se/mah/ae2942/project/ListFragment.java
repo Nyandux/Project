@@ -1,11 +1,14 @@
 package se.mah.ae2942.project;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -60,6 +63,7 @@ public class ListFragment extends Fragment {
     public void setListViewAdapter() {
         ExpenseAdapter expenseAdapter = new ExpenseAdapter(getActivity(), controller.getData());
         listView.setAdapter(expenseAdapter);
+        listView.setOnItemClickListener(new OnListClick());
     }
 
 
@@ -78,6 +82,28 @@ public class ListFragment extends Fragment {
             if(btnChart.isPressed()){
                 mainActivity.setViewFragment("chartfragment");
             }
+        }
+    }
+
+    /**
+     * ListView listener
+     */
+    private class OnListClick implements android.widget.AdapterView.OnItemClickListener{
+
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            Expense expense = (Expense)listView.getAdapter().getItem(position);
+            builder.setTitle(expense.getTitle());
+            builder.setMessage("Amount: " + expense.getAmount() + " kr"+
+                    "\nCategory: "+ expense.getCategory() +
+                    "\nDate: " + expense.getDate());
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int i) {
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         }
     }
 }

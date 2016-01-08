@@ -16,4 +16,5 @@
     <string name="fragment_add_button_date">Date</string>
     <string name="fragment_add_button_finish">Add Expense</string>
     <string name="action_add_text">Add</string>
+    <string name="action_currency_converter">Currency converter</string>
 </resources>

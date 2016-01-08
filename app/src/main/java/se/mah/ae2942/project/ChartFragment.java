@@ -4,6 +4,7 @@ package se.mah.ae2942.project;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,15 +67,12 @@ public class ChartFragment extends Fragment {
         pieChart.setRotationEnabled(true);
         pieChart.setOnChartValueSelectedListener(new ChartListener());
 
-
         addExpensesToChart(controller.getData());
-       // addExpensesToChart();
 
         Legend legend = pieChart.getLegend();
         legend.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
         legend.setXEntrySpace(7);
         legend.setYEntrySpace(5);
-
     }
 
     /**
@@ -108,7 +106,7 @@ public class ChartFragment extends Fragment {
         PieData data = new PieData(xList, dataSet);
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(12f);
-        data.setValueTextColor(Color.WHITE);
+        data.setValueTextColor(Color.BLACK);
 
         pieChart.setData(data);
         pieChart.highlightValues(null);
@@ -159,7 +157,10 @@ public class ChartFragment extends Fragment {
     private class ChartListener implements com.github.mikephil.charting.listener.OnChartValueSelectedListener{
 
         public void onValueSelected(Entry entry, int position, Highlight timeHighlighted) {
-            Toast.makeText(getActivity(), expenses[position].getTitle(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), expenses[position].getCategory(), Toast.LENGTH_SHORT).show();
+            for(int i = 0; i < expenses.length; i++){
+                Log.i("Expenses", expenses[i].getCategory());
+            }
         }
 
         public void onNothingSelected() {

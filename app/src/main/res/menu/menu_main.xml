@@ -18,4 +18,9 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/add"/>
 
+    <item android:id="@+id/action_currency_converter"
+        android:title="@string/action_currency_converter"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/calculator"/>
+
 </menu>

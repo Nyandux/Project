@@ -44,9 +44,11 @@ public class UserFragment extends Fragment {
     public void initiate(){
         etUsername = (EditText)view.findViewById(R.id.fragment_user_edittext_username);
         etPassword = (EditText)view.findViewById(R.id.fragment_user_edittext_password);
+        etPassword.setEnabled(false);
         btnLogIn = (Button)view.findViewById(R.id.fragment_user_button_login);
         btnCreateUser = (Button)view.findViewById(R.id.fragment_user_button_create_user);
         btnLogIn.setOnClickListener(new ButtonLogInOnClick());
+        btnLogIn.setEnabled(false);
         btnCreateUser.setOnClickListener(new ButtonCreateUserOnClick());
         mainActivity = (MainActivity)getActivity();
         sharedPreferences = getActivity().getSharedPreferences("MainActivity",
@@ -74,9 +76,8 @@ public class UserFragment extends Fragment {
     private class ButtonCreateUserOnClick implements View.OnClickListener{
 
         public void onClick(View v) {
-            if((getUsername() != null) && getPassword() != null){
-                sharedPreferences.edit().putString(getUsername(), getPassword()).commit();
-                sharedPreferences.edit().putString("username", getUsername());
+            if((!getUsername().matches(""))){
+                sharedPreferences.edit().putString("username", getUsername()).apply();
                 mainActivity.setViewFragment("listfragment");
             }
             else{
@@ -86,6 +87,9 @@ public class UserFragment extends Fragment {
         }
     }
 
+    /**
+     * Not in use atm.
+     */
     private class ButtonLogInOnClick implements View.OnClickListener{
 
         public void onClick(View v) {

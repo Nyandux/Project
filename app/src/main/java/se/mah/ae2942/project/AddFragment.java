@@ -180,7 +180,7 @@ public class AddFragment extends Fragment {
             // First get location from Network Provider
             if (isNetworkEnabled)
             {
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10000, 0, mll);
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 100000, 0, mll);
                 if (locationManager != null)
                 {
                     Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -195,7 +195,7 @@ public class AddFragment extends Fragment {
             // if GPS Enabled get lat/long using GPS Services
             if (isGPSEnabled)
             {
-                locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 10000,
+                locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 100000,
                         0, mll);
                 if (locationManager != null)
                 {

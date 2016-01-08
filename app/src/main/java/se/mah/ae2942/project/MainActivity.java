@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Controller controller;
     private ListFragment listFragment;
+    private CurrencyConverterFragment ccFragment;
     private UserFragment userFragment;
     private GMapsFragment gMapsFragment;
     private ChartFragment chartFragment;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         controller = new Controller(this);
         listFragment = new ListFragment();
         userFragment = new UserFragment();
+        ccFragment = new CurrencyConverterFragment();
         addFragment = new AddFragment();
         gMapsFragment = new GMapsFragment();
         chartFragment = new ChartFragment();
@@ -75,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
             case "addfragment" :
                 ft.replace(R.id.activity_main_layout, addFragment).commit();
                 break;
+            case "ccfragment" :
+                ft.replace(R.id.activity_main_layout, ccFragment).commit();
+                break;
         }
     }
 
@@ -105,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.action_add_to_list){
             setViewFragment("addfragment");
+        }
+
+        if(id == R.id.action_currency_converter){
+            setViewFragment("ccfragment");
         }
 
         return super.onOptionsItemSelected(item);
