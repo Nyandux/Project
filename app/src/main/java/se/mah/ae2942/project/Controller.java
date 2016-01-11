@@ -7,7 +7,6 @@ package se.mah.ae2942.project;
  */
 public class Controller {
 
-    private MainActivity mainActivity;
     private ExpenseDB db;
 
     /**
@@ -15,7 +14,6 @@ public class Controller {
      */
     public Controller(MainActivity mainActivity) {
         db = new ExpenseDB(mainActivity);
-        this.mainActivity = mainActivity;
     }
 
     /**
@@ -29,17 +27,27 @@ public class Controller {
             amount += e.getAmount();
         }
         return amount;
-
     }
 
+    /**
+     * Add new expense to DB
+     * @param expense Expense
+     */
     public void setData(Expense expense){
         db.insertData(expense);
     }
 
+    /**
+     * Returns data from database
+     * @return Expense[]
+     */
     public Expense[] getData(){
         return db.getData();
     }
 
+    /**
+     * Drop database table
+     */
     public void dropDatabase(){
         db.dropTable();
     }

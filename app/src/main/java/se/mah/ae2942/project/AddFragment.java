@@ -211,8 +211,10 @@ public class AddFragment extends Fragment {
         }// End of Either GPS provider or network provider is enabled
     }
 
+    /**
+     * LocationListener class
+     */
     private class MyLocationListener implements LocationListener{
-
         @Override
         public void onLocationChanged(Location location) {
             lat = location.getLatitude();

@@ -154,6 +154,9 @@ public class ChartFragment extends Fragment {
 
     }
 
+    /**
+     * ChartListener, click on pieChart to see name of expense
+     */
     private class ChartListener implements com.github.mikephil.charting.listener.OnChartValueSelectedListener{
 
         public void onValueSelected(Entry entry, int position, Highlight timeHighlighted) {

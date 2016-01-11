@@ -11,7 +11,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
+/**
+ * Google maps fragment, add expense markers to map.
+ */
 public class GMapsFragment extends com.google.android.gms.maps.MapFragment implements OnMapReadyCallback{
 
     private GoogleMap mMap;
@@ -34,6 +36,9 @@ public class GMapsFragment extends com.google.android.gms.maps.MapFragment imple
         setAllPosition();
     }
 
+    /**
+     * Set markers on map
+     */
     public void setAllPosition(){
         double latitude,longitude;
         expenses = controller.getData();

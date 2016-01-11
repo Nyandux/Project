@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Set fragment, Switch case changes fragment depending on str from param.
+     * @param str - FragmentName String
+     */
     public void setViewFragment(String str){
 
         FragmentManager fm = getFragmentManager();
@@ -83,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Returns controller
+     * @return Controller
+     */
     public Controller getController() {
         return controller;
     }

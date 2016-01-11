@@ -73,6 +73,9 @@ public class UserFragment extends Fragment {
         return etPassword.getText().toString();
     }
 
+    /**
+     * Creates username, adds username to sharedPreferences.
+     */
     private class ButtonCreateUserOnClick implements View.OnClickListener{
 
         public void onClick(View v) {
@@ -88,7 +91,8 @@ public class UserFragment extends Fragment {
     }
 
     /**
-     * Not in use atm.
+     * Log in, checks username and password.
+     * <Not implemented></Not>
      */
     private class ButtonLogInOnClick implements View.OnClickListener{
 

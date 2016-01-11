@@ -10,6 +10,7 @@ import java.util.Iterator;
 
 /**
  * Created by Arbie A on 18/10/15.
+ * Expenses Database, add expenses and retrieve them from DB
  */
 public class ExpenseDB extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "expense.db";

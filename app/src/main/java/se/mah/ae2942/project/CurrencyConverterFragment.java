@@ -16,6 +16,9 @@ import org.json.JSONObject;
 import java.text.DecimalFormat;
 import cz.msebera.android.httpclient.Header;
 
+/**
+ * Converts SEK to USD, GBP and EUR.
+ */
 public class CurrencyConverterFragment extends Fragment {
 
     private View view;
@@ -24,6 +27,9 @@ public class CurrencyConverterFragment extends Fragment {
     private EditText etSEK;
     private static final String PAGEAPI = "http://api.fixer.io/latest?base=SEK";
 
+    /**
+     * Constructor
+     */
     public CurrencyConverterFragment() {
     }
 
@@ -41,6 +47,9 @@ public class CurrencyConverterFragment extends Fragment {
         return view;
     }
 
+    /**
+     * ButtonListener, fetches latest currency rates from api.fixer.io
+     */
     private class ButtonGetOnClick implements View.OnClickListener {
 
         public void onClick(View v) {
